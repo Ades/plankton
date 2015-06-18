@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Plankan timer</title>
+
+    <link rel="stylesheet" type="text/css" href="plankton.css">
+
+    <script type="text/javascript" src="howler.js/howler.min.js"></script>
+    <script type="text/javascript">
+
+        function speak(text, callback) {
+            var u = new SpeechSynthesisUtterance();
+            u.text = text;
+            u.lang = 'en-US';
+
+            u.onend = function () {
+                if (callback) {
+                    callback();
+                }
+            };
+
+            u.onerror = function (e) {
+                if (callback) {
+                    callback(e);
+                }
+            };
+
+            speechSynthesis.speak(u);
+        }
+
+        function speakAt(inSeconds, text, callback) {
+            setTimeout(function () {
+                speak(text, callback)
+            }, inSeconds * 1000);
+        }
+
+        function startPlankan() {
+            var sound = new Howl({
+                urls: ['Intercom-beep-sound.mp3']
+            });
+
+            var t = 0;
+            speakAt(t+=0, "Hi! Plankan will start in.");
+            speakAt(t+=1, "Three");
+            speakAt(t+=1, "Two");
+            speakAt(t+=1, "One", function () {sound.play();});
+            speakAt(t+=40, "Twenty left!");
+            speakAt(t+=19, "Three!");
+            speakAt(t+=1, "Two!");
+            speakAt(t+=1, "Change!",function () {sound.play();});
+
+            speakAt(t+=1, "Pause!");
+            speakAt(t+=20, "Relax!");
+            speakAt(t+=15, "Ten left!");
+            speakAt(t+=8, "Three!");
+            speakAt(t+=1, "Two!");
+            speakAt(t+=1, "Change!");
+
+            speakAt(t+=0, "Start!", function () {sound.play();});
+            speakAt(t+=40, "Twenty left!");
+            speakAt(t+=19, "Three!");
+            speakAt(t+=1, "Two!");
+            speakAt(t+=1, "Change!",function () {sound.play();});
+
+            speakAt(t+=1, "Pause!");
+            speakAt(t+=20, "Relax!");
+            speakAt(t+=15, "Ten left!");
+            speakAt(t+=8, "Three!");
+            speakAt(t+=1, "Two!");
+            speakAt(t+=1, "Change!",function () {sound.play();});
+
+            speakAt(t+=0, "Start!", function () {sound.play();});
+            speakAt(t+=40, "Twenty left!");
+            speakAt(t+=19, "Three!");
+            speakAt(t+=1, "Two!");
+            speakAt(t+=1, "Finished! Good work! Stay Calm and carry on!");
+
+        }
+</script>
+</head>
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="mainbody">Body</div>
+        <input id="Start" type="button" value="Start plankan" onclick="startPlankan()" />
+        <div class="footer">Footer</div>
+    </div>
+</body>
+</html>
