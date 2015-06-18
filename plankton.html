@@ -39,40 +39,46 @@
             var sound = new Howl({
                 urls: ['Intercom-beep-sound.mp3']
             });
+            var backgroundSound = new Howl({
+                urls: ['http://goldfirestudios.com/proj/howlerjs/sound.ogg'],
+                autoplay: false,
+                loop: true,
+                volume: 0.5
+            });
 
             var t = 0;
             speakAt(t+=0, "Hi! Plankan will start in.");
             speakAt(t+=1, "Three");
             speakAt(t+=1, "Two");
-            speakAt(t+=1, "One", function () {sound.play();});
+            speakAt(t+=1, "One", function () {sound.play();backgroundSound.pause().fadeIn(0.2, 4000);});
             speakAt(t+=40, "Twenty left!");
-            speakAt(t+=19, "Three!");
+            speakAt(t+=19, "Three!", function () {backgroundSound.pause().fadeOut(0, 2000);});
             speakAt(t+=1, "Two!");
-            speakAt(t+=1, "Change!",function () {sound.play();});
+            speakAt(t+=1, "Change!");
 
-            speakAt(t+=1, "Pause!");
+            speakAt(t+=1, "Pause!",function () {sound.play();});
             speakAt(t+=20, "Relax!");
             speakAt(t+=15, "Ten left!");
             speakAt(t+=8, "Three!");
             speakAt(t+=1, "Two!");
             speakAt(t+=1, "Change!");
 
-            speakAt(t+=0, "Start!", function () {sound.play();});
+            speakAt(t+=0, "Start!", function () {sound.play();backgroundSound.pause().fadeIn(0.2, 4000);});
             speakAt(t+=40, "Twenty left!");
-            speakAt(t+=19, "Three!");
+            speakAt(t+=19, "Three!", function () {backgroundSound.pause().fadeOut(0, 2000);});
             speakAt(t+=1, "Two!");
-            speakAt(t+=1, "Change!",function () {sound.play();});
+            speakAt(t+=1, "Change!");
 
-            speakAt(t+=1, "Pause!");
+            speakAt(t+=1, "Pause!", function () {sound.play();});
             speakAt(t+=20, "Relax!");
             speakAt(t+=15, "Ten left!");
             speakAt(t+=8, "Three!");
             speakAt(t+=1, "Two!");
-            speakAt(t+=1, "Change!",function () {sound.play();});
+            speakAt(t+=1, "Change!");
 
-            speakAt(t+=0, "Start!", function () {sound.play();});
+            speakAt(t+=0, "Start!", function () {sound.play();backgroundSound.pause().fadeIn(0.2, 4000);});
             speakAt(t+=40, "Twenty left!");
-            speakAt(t+=19, "Three!");
+            speakAt(t+=19, "Three!", function () {backgroundSound.pause().fadeOut(0, 2000);});
             speakAt(t+=1, "Two!");
             speakAt(t+=1, "Finished! Good work! Stay Calm and carry on!");
 
