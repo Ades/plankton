@@ -52,6 +52,12 @@
                 loop: true,
                 volume: 0.2
             });
+            var applause = new Howl({
+                urls: Math.random() > 0.05 ? ['SMALL_CROWD_APPLAUSE.mp3'] : ['FakeApplause.mp3'],
+                autoplay: false,
+                loop: false,
+                volume: 0.2
+            });
 
             var t = 0;
             var BACKGROUND_VOLUME = 0.1;
@@ -95,7 +101,8 @@
             speakAt(t+=19, "Three!", function () {backgroundSound.pause().fadeOut(0, 2000);});
             speakAt(t+=1, "Two!");
             speakAt(t+=1, "One!");
-            speakAt(t+=1, "Finished! Good work! Stay Calm and carry on!", function () {backgroundSoundRelax.pause().fadeOut(0, 1000);});
+            speakAt(t+=1, "Finished!");
+            speakAt(t+=2, "Great work!", function () {applause.play();backgroundSoundRelax.pause().fadeOut(0, 1000);});
 
         }
 </script>
