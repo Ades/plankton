@@ -90,8 +90,7 @@
                 urls: ['Intercom-beep-sound.mp3']
             });
             var backgroundSound = new Howl({
-//                urls: ['http://goldfirestudios.com/proj/howlerjs/sound.ogg'],
-                urls: ['output.ogg'],
+                urls: document.querySelector('#sound-checkbox').checked ? ['http://goldfirestudios.com/proj/howlerjs/sound.ogg'] : ['output.ogg'],
                 autoplay: false,
                 loop: true,
                 volume: 0.5
@@ -170,6 +169,7 @@
         </div>
         <div id="timer">00:00</div>
         <input id="Start" type="button" value="Start plankan" onclick="startPlankan()" />
+        <input id="sound-checkbox" type="checkbox">Sound</input>
         <div class="footer">Be the plank!</div>
         <a href="http://jsfiddle.net/c38okrs4/12/"/>
     </div>
