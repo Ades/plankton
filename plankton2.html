@@ -130,6 +130,16 @@
             ['What do the starship Enterprise and toilet paper have in common?', 'They both probe Uranus and wipe out Klingons.']
         ];
 
+/*
+        var testPhrases = [
+            'abc',
+            ['def', 'ghi'],
+            'jkl',
+            'mno',
+            'pqr'
+        ];
+*/
+
         var variants = {
             extreme: {
                 name: 'Extreme',
@@ -388,6 +398,48 @@
                     }
                 ]
             }
+/*
+            ,
+            test: {
+                name: 'Test',
+                tick: true,
+                background: false, // TODO - Do we really need background sound?
+                parts: [
+                    {
+                        name: 'One and only',
+                        time: 10,
+                        countdown: false,
+                        timeSounds: [
+                            {
+                                time: 2,
+                                type: 'speak',
+                                sound: testPhrases
+                            },
+                            {
+                                time: 4,
+                                type: 'speak',
+                                sound: testPhrases
+                            },
+                            {
+                                time: 6,
+                                type: 'speak',
+                                sound: testPhrases
+                            },
+                            {
+                                time: 8,
+                                type: 'speak',
+                                sound: testPhrases
+                            },
+                            {
+                                time: 10,
+                                type: 'speak',
+                                sound: testPhrases
+                            }
+                        ]
+                    }
+                ]
+            }
+*/
         };
 
         function populateVariants() {
@@ -561,7 +613,7 @@
         }
 
         function getSound(files) {
-            var soundFile = files;
+            var sound = files;
             if (typeof files !== 'string') {
                 var totalRandom = 0;
                 var i;
@@ -573,17 +625,23 @@
                     }
                 }
 
-                var randomNumber = Math.floor(Math.random() * totalRandom);
-                var accRandom = 0;
-                for (i = 0; i < files.length; i++) {
-                    accRandom += (typeof files[i] !== 'string' && 'weight' in files[i] ? files[i].weight : 1);
-                    if (randomNumber < accRandom) {
-                        soundFile = (typeof files[i] !== 'string' && 'sound' in files[i] ? files[i].sound : files[i]);
+                while (true) {
+                    var randomNumber = Math.floor(Math.random() * totalRandom);
+                    var accRandom = 0;
+                    for (i = 0; i < files.length; i++) {
+                        accRandom += (typeof files[i] !== 'string' && 'weight' in files[i] ? files[i].weight : 1);
+                        if (randomNumber < accRandom) {
+                            sound = (typeof files[i] !== 'string' && 'sound' in files[i] ? files[i].sound : files[i]);
+                            break;
+                        }
+                    }
+                    if (pickedRandomObjects.indexOf(sound) === -1) {
+                        pickedRandomObjects.push(sound);
                         break;
                     }
                 }
             }
-            return soundFile;
+            return sound;
         }
 
         function createHowl(sound) {
@@ -596,6 +654,7 @@
         }
 
         function constructSoundQueue() {
+            pickedRandomObjects.length = 0;
             for (var i = 0; i < sounds.length; i++) {
                 if (sounds[i].type === 'file') {
                     var sound = getSound(sounds[i].sound);
@@ -610,8 +669,10 @@
         var endTime = 0;
         var sounds = null;
         var queuedSound = null;
+        var lastQueuedSound = null;
         var currentPart = null;
         var currentVariant = null;
+        var pickedRandomObjects = [];
         function restartTimeoutChain() {
             endTime = 0;
             startTime = new Date().valueOf();
@@ -630,6 +691,9 @@
                     // This is our next action
                     var nextTime = sound.time;
                     sound.passed = true;
+                    if (queuedSound) {
+                        lastQueuedSound = queuedSound;
+                    }
                     queuedSound = sound;
                     foundSound = true;
                     console.log('Next sound:', queuedSound, 'at time:', queuedSound.time);
@@ -682,6 +746,24 @@
             return '▴ ' + getTimeLabelForSeconds(time) + ' ▾ ' + getTimeLabelForSeconds(partTime - time);
         }
 
+        function updateProgress(elapsed, sound) {
+            var currentTitleTime = document.querySelector('.title-time.current');
+            var currentProgress = document.querySelector('.progressbar.current');
+
+            var partTime = Math.floor((elapsed - sound.partStart) / 1000);
+            currentTitleTime.innerHTML = getCurrentTimeProgressLabel(partTime, sound.part.time);
+            currentProgress.max = sound.part.time;
+            currentProgress.value = partTime;
+
+            var totalTitleTime = document.querySelector('.title-time.total');
+            var totalProgress = document.querySelector('.progressbar.total');
+            var totalElapsedTime = getTotalElapsedTime(elapsed);
+            var totalTime = getTotalTime();
+            totalTitleTime.innerHTML = getCurrentTimeProgressLabel(totalElapsedTime, totalTime);
+            totalProgress.max = totalTime;
+            totalProgress.value = totalElapsedTime;
+        }
+
         function updateAndStartClockTimeout() {
             var currentTime = new Date().valueOf();
             if (endTime && currentTime > endTime) {
@@ -689,23 +771,12 @@
             }
             var elapsed = currentTime - startTime;
 
-            if (!queuedSound.part.hidden) {
-                var currentTitleTime = document.querySelector('.title-time.current');
-                var currentProgress = document.querySelector('.progressbar.current');
-
-                var partTime = Math.floor((elapsed - queuedSound.partStart) / 1000);
-                currentTitleTime.innerHTML = getCurrentTimeProgressLabel(partTime, queuedSound.part.time);
-                currentProgress.max = queuedSound.part.time;
-                currentProgress.value = partTime;
-
-                var totalTitleTime = document.querySelector('.title-time.total');
-                var totalProgress = document.querySelector('.progressbar.total');
-                var totalElapsedTime = getTotalElapsedTime(elapsed);
-                var totalTime = getTotalTime();
-                totalTitleTime.innerHTML = getCurrentTimeProgressLabel(totalElapsedTime, totalTime);
-                totalProgress.max = totalTime;
-                totalProgress.value = totalElapsedTime;
+            if (queuedSound && !queuedSound.part.hidden) {
+                updateProgress(elapsed, queuedSound);
+            } else if (lastQueuedSound && !lastQueuedSound.part.hidden) {
+                updateProgress(elapsed, lastQueuedSound);
             }
+
 
             if (!endTime) {
                 setTimeout(updateAndStartClockTimeout, 1000 - elapsed % 1000);
@@ -756,7 +827,7 @@
         }
 
         function stopPlankan() {
-            endTime = new Date.valueOf();
+            endTime = new Date().valueOf();
             console.log(endTime - startTime);
         }
 
