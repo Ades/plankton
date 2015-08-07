@@ -2,6 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Plankan timer</title>
 
     <style type="text/css">
@@ -64,6 +65,18 @@
         .progressbar.total::-webkit-progress-value {
             background: #0C0;
         }
+
+        .warning-label {
+            color: red;
+        }
+
+        .warning-symbol {
+            font-size: 125%;
+        }
+
+        .dirty-checkbox {
+            margin-left: 2em;
+        }
     </style>
 
     <link rel="stylesheet" type="text/css" href="plankton.css">
@@ -100,7 +113,11 @@
             'Health is happiness.', 'A good laugh and a long sleep are the best cures in the doctor\'s book.', 'Boom, shackalacka, boom!',
             'Be yourself', 'Alive and kicking.', 'Refuse to lose.', 'Attitude is everything.', 'Don\'t worry, be happy.',
             'Yes you can.', 'No worries.', 'Get the ball rolling.', 'No guts, no glory.', 'Impossible is nothing.', 'Impossibru', 'Play hard or go home.',
-            'Success is the only option.'];
+            'Success is the only option.',
+
+            'If you’re one in a million, there are six thousand people exactly like you.',
+            'Light travels faster than sound. This is why some people appear bright until they speak.'
+        ];
 
         var shortJokes = [
             ['What happens to a frog\'s car when it breaks down?', 'It gets toad away.'],
@@ -124,21 +141,71 @@
             ['What do you get when you cross a donkey and an onion?', 'A piece of ass that\'ll bring a tear to your eye.'],
             ['What did the pony say when he had a sore throat?', 'Sorry, I\'m a little horse.'],
             ['What do you call someone without a nose or a body?', 'Nobody nose.'],
-            ['Why did the music teacher get arrested?', 'He fingered A minor.'],
             ['Why did the condom fly across the room?', 'Because it was pissed off.'],
             ['What do you give a deaf fisherman?', 'A herring aid.'],
-            ['What do the starship Enterprise and toilet paper have in common?', 'They both probe Uranus and wipe out Klingons.']
+            ['What do the starship Enterprise and toilet paper have in common?', 'They both probe Uranus and wipe out Klingons.'],
+            'I never forget a face, but in your case I\'ll be glad to make an exception.',
+            'I totally understand how batteries feel because I\'m rarely ever included in things either.',
+            'Did you hear about the Mexican train killer? He had locomotives.',
+            ['What time is it when you have to go to the dentist?', 'Tooth-hurtie.'],
+            ['Why can’t a bike stand on its own?', 'It’s two tired.'],
+            ['Last night I almost had a threesome.', 'I only needed two more people!'],
+            'Atheism is a non-prophet organization.',
+            'When you get a bladder infection, urine trouble.',
+            ['I wrote a song about a tortilla.', 'Well actually, it’s more of a wrap.'],
+            ['A roman legionnaire walks into a bar, holds up two fingers and says', '"Five beers, please.'],
+            ['I started a band called ninehundred ninety nine Megabytes', 'we haven’t gotten a gig yet.'],
+            'Dwarfs and midgets have very little in common.',
+            ['Two cannibals are eating a clown.', 'One says to the other.', '"Does this Taste funny to you?"'],
+            ['Did you hear about the guy who died of a Viagra overdose?', 'They couldn\'t close his casket.'],
+            ['How did Burger King get Dairy Queen Pregnant?', 'He forgot to wrap his whopper!'],
+            ['Definition of a bachelor:', 'A man who has missed the opportunity to make some woman miserable.'],
+            'How does a man take a bubble bath? He eats beans for dinner.',
+            ['How do men sort out their laundry?', 'Filthy', 'And filthy but wearable.'],
+            ['What\'s in the toilet of the star ship enterprise?', 'The captains log.']
         ];
 
-/*
-        var testPhrases = [
-            'abc',
-            ['def', 'ghi'],
-            'jkl',
-            'mno',
-            'pqr'
-        ];
-*/
+        var potentiallyOffensiveJokes = [
+            ['Why did the music teacher get arrested?', 'He fingered A minor.'],
+            ['What do you call a cheap circumcision?', 'A rip-off'],
+            'Don\'t let an extra chromosome get you down.',
+            'Life is like toilet paper, you\'re either on a roll or taking shit from some asshole.',
+            ['One day, a little boy wrote to Santa Clause.', 'Please send me a sister.', 'Santa Clause wrote him back.', 'Ok, send me your mother.'],
+            ['Why can\'t Ken get Barbie pregnant?', 'because he comes in another box'],
+            ['What\'s the difference between a Gee Spot and a golf ball?', 'A guy will actually search for a golf ball.'],
+            ['Why can\'t blondes count to 70?', 'Because 69 is a bit of a mouthful.'],
+            ['What do the Mafia and a pussy have in common?', 'One slip of the tongue, and you\'re in deep shit.'],
+            ['Three words to ruin a man\'s ego...?', 'Is it in?'],
+            ['Did you hear about the gay security guard who got fired from his job at the sperm bank?', 'He got caught drinking on the job.'],
+            ['Why doesn\'t Santa have any kids?', 'He only comes once a year.'],
+            ['Who can make more money in a week, a drug dealer or a prostitute?', 'The prostitute because she can wash and resell her crack.'],
+            ['Why don\'t women have men\'s brains?' , 'Because they don\'t have penises to put them in.'],
+            ['What\'s the difference between a bitch and a whore?', 'A whore sleeps with everybody at the party, and a bitch sleeps with everybody at the party except you.'],
+            ['How can you make a gay man scream twice?', 'Fudge him real hard.', 'Then wipe your dick off on his curtains.'],
+            ['Why do women prefer old gynecologists?', 'Their shaky hands!'],
+            ['Men are like bank accounts.', 'Without a lot of money, they don\'t generate much interest.'],
+            ['I was at a restaurant and I noticed my waitress had a black eye.', 'So I ordered very slowly because obviously she doesn\'t listen.'],
+            ['My dad used to always warn me about anal.', 'He would say', 'Now son, this may hurt a bit.'],
+            ['How do you get a nun pregnant?', 'Dress her up as an alter boy.'],
+            ['Why do they call it PMS?', 'Because Mad Cow Disease was already taken.'],
+            ['What did the elephant say to the naked man?', 'How do you breathe through something so small?'],
+            ['What\'s worse than getting raped by Jack the Ripper?', 'Getting fingered by Captain Hook.'],
+            ['What do a walrus and Tupperware have in common?', 'They both like a tight seal.'],
+            ['What did the banana say to the vibrator?', 'Why are you shaking?', 'She\'s going to eat me.'],
+            ['A man noticed that his credit card had been stolen but didn\'t report it.', 'The thief was spending less then his wife.'],
+            ['Why haven\'t they sent a woman to the moon yet?', 'It doesn\'t need cleaning.'],
+            ['Why is psychoanalysis quicker for men than for women?', 'When it\'s time to go back to his childhood, he\'s already there.'],
+            ['What\'s the definition of trust?', 'Two cannibals giving each other a blowjob.'],
+            ['Did you hear about the flasher who was thinking of retiring?', 'He decided to stick it out for one more year!'],
+            ['What do a clitoris, an anniversary, and a toilet have in common?', 'Men always miss them.'],
+            ['Why is the space between a woman\'s breasts and her hips called a waist?', 'Because you could easily fit another pair of tits in there.'],
+            ['Why is it difficult to find men who are sensitive, caring, and good looking?', 'They already have boyfriends.'],
+            ['What\'s the difference between a new husband and a new dog.', 'After a year, the dog is still excited to see you.'],
+            ['Why is sleeping with a man like a soap opera?', 'Just when it\'s getting interesting, they\'re finished until next time.'],
+            ['What has 2 grey legs and 2 brown legs?', 'An elephant with diarrhea.'],
+            ['Why does the bride always wear white?',  'Well... aren\'t all kitchen appliances that colour?'],
+            ['How do you know when a male porn star is at the gas station?', 'Right before the gas stops pumping he pulls out the nozzle and sprays it all over the car.']
+        ]
 
         var variants = {
             extreme: {
@@ -398,48 +465,6 @@
                     }
                 ]
             }
-/*
-            ,
-            test: {
-                name: 'Test',
-                tick: true,
-                background: false, // TODO - Do we really need background sound?
-                parts: [
-                    {
-                        name: 'One and only',
-                        time: 10,
-                        countdown: false,
-                        timeSounds: [
-                            {
-                                time: 2,
-                                type: 'speak',
-                                sound: testPhrases
-                            },
-                            {
-                                time: 4,
-                                type: 'speak',
-                                sound: testPhrases
-                            },
-                            {
-                                time: 6,
-                                type: 'speak',
-                                sound: testPhrases
-                            },
-                            {
-                                time: 8,
-                                type: 'speak',
-                                sound: testPhrases
-                            },
-                            {
-                                time: 10,
-                                type: 'speak',
-                                sound: testPhrases
-                            }
-                        ]
-                    }
-                ]
-            }
-*/
         };
 
         function populateVariants() {
@@ -831,7 +856,23 @@
             console.log(endTime - startTime);
         }
 
+        function alignDirty() {
+            var isDirty = document.querySelector('#dirty').checked;
+            for (var i = 0; i < potentiallyOffensiveJokes.length; i++) {
+                if (isDirty && shortJokes.indexOf(potentiallyOffensiveJokes[i]) === -1) {
+                    // Add joke if not in here, and dirty is turned on
+                    console.log("Added dirty joke!");
+                    shortJokes.push(potentiallyOffensiveJokes[i]);
+                } else if (!isDirty && shortJokes.indexOf(potentiallyOffensiveJokes[i]) !== -1) {
+                    // Remove joke if in here, and dirty is turned off
+                    shortJokes.splice(shortJokes.indexOf(potentiallyOffensiveJokes[i]), 1);
+                    console.log("Removed dirty joke!");
+                }
+            }
+        }
+
         function startPlankan() {
+            alignDirty();
             sounds = buildTimeline();
             constructSoundQueue();
             restartTimeoutChain();
@@ -839,7 +880,7 @@
     </script>
 </head>
 <body onload="start();">
-<div class="container">
+<div class="container-2">
     <div class="header-2">Plankton 2.0 -- the "plankan" timer</div>
 
     <div class="plankan-chooser">
@@ -849,6 +890,9 @@
     <div class="plank-info">
 
     </div>
+
+    <input class="dirty-checkbox" type="checkbox" id="dirty" value="false"/>
+    <label class="warning-label" for="dirty"><span class="warning-symbol">⚠</span> Dirty Jokes OK?</label>
 
     <input id="Start" type="button" value="Start plankan" class="start-button" onclick="startPlankan()" />
     <div class="footer-2">Be the plank!</div>
