@@ -417,6 +417,13 @@
                 var variantsSelect = document.querySelector('.plankan-variants');
                 variantsSelect.value = lastVariant;
             }
+            var lastDirty = window.localStorage.getItem('dirt-ey');
+            document.querySelector('#dirty').checked = lastDirty === 'true';
+        }
+
+        function saveDirtyPreference() {
+            var isDirty = document.querySelector('#dirty').checked;
+            window.localStorage.setItem('dirt-ey', isDirty);
         }
 
         function changedVariant() {
@@ -818,7 +825,7 @@
     </div>
 
     <div class="dirty-wrapper">
-        <input class="dirty-checkbox" type="checkbox" id="dirty" value="false"/>
+        <input class="dirty-checkbox" type="checkbox" id="dirty" value="false" onchange="saveDirtyPreference()"/>
         <label class="warning-label" for="dirty"><span class="warning-symbol">⚠</span> Dirty Jokes OK?</label>
     </div>
 
