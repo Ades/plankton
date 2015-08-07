@@ -5,80 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Plankan timer</title>
 
-    <style type="text/css">
-        .bullet {
-            position: relative;
-        }
-
-        .bullet-time {
-            position: absolute;
-            top: 0;
-            right: 20px;
-        }
-
-        .title-time {
-            margin-left: 1em;
-            color: green;
-        }
-
-        .progress-wrapper {
-            margin: 1em;
-        }
-
-        .progressbar {
-            display: -webkit-box;
-            -webkit-box-sizing: border-box;
-            width: 100%;
-        }
-
-        .progressbar {
-            display: -webkit-box;
-            -webkit-box-sizing: border-box;
-            width: 100%;
-            height: 20px;
-            margin: 0;
-            background: none;
-            border: 0;
-            border-radius: 15px;
-            position: relative;
-        }
-
-        .progressbar::-webkit-progress-bar {
-            height: 11px;
-            width: 100%;
-            margin: 0 auto;
-            background-color: #CCC;
-            border-radius: 15px;
-            box-shadow: 0 0 6px #777 inset;
-        }
-
-        .progressbar::-webkit-progress-value {
-            display: inline-block;
-            float: left;
-            height: 11px;
-            margin: 0 -10px 0 0;
-            background: #F70;
-            border-radius: 15px;
-            box-shadow: 0 0 6px #777 inset;
-        }
-
-        .progressbar.total::-webkit-progress-value {
-            background: #0C0;
-        }
-
-        .warning-label {
-            color: red;
-        }
-
-        .warning-symbol {
-            font-size: 125%;
-        }
-
-        .dirty-checkbox {
-            margin-left: 2em;
-        }
-    </style>
-
     <link rel="stylesheet" type="text/css" href="plankton.css">
 
     <script type="text/javascript" src="howler.js/howler.min.js"></script>
@@ -205,7 +131,7 @@
             ['What has 2 grey legs and 2 brown legs?', 'An elephant with diarrhea.'],
             ['Why does the bride always wear white?',  'Well... aren\'t all kitchen appliances that colour?'],
             ['How do you know when a male porn star is at the gas station?', 'Right before the gas stops pumping he pulls out the nozzle and sprays it all over the car.']
-        ]
+        ];
 
         var variants = {
             extreme: {
@@ -891,8 +817,10 @@
 
     </div>
 
-    <input class="dirty-checkbox" type="checkbox" id="dirty" value="false"/>
-    <label class="warning-label" for="dirty"><span class="warning-symbol">⚠</span> Dirty Jokes OK?</label>
+    <div class="dirty-wrapper">
+        <input class="dirty-checkbox" type="checkbox" id="dirty" value="false"/>
+        <label class="warning-label" for="dirty"><span class="warning-symbol">⚠</span> Dirty Jokes OK?</label>
+    </div>
 
     <input id="Start" type="button" value="Start plankan" class="start-button" onclick="startPlankan()" />
     <div class="footer-2">Be the plank!</div>
