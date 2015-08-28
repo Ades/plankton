@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="plankton.css">
 
     <script type="text/javascript" src="howler.js/howler.min.js"></script>
+    <script type="text/javascript" src="scripts/prototype.js"></script>
     <script type="text/javascript">
         var countdownParts = [
             {
@@ -141,6 +142,16 @@
             ['What do you call it when someone farts in a gay bar?', 'A love call.'],
             ['What did the pedophile say when he got out of jail?', 'I feel like a kid again!'],
             ['What\'s the ultimate rejection?', 'When you\'re masturbating and your hand falls asleep.']
+        ];
+
+        var programmingJokes = [
+            ['Programming is like sex', 'One mistake and you have to support it for the rest of your life.'],
+            ['What did the suicidal function say?', 'GOODBYE WORLD'],
+            ['How many Computer Scientist students does it take to change a lightbulb?', 'None, that\'s a hardware problem.'],
+            ['3 Errors walk into a bar.', 'The barman says.', 'normally I\'d Throw you all out, but tonight I\'ll make an Exception.'],
+            ['Why was the statement scared.', 'while the comment was not?', 'Statements are executed.'],
+            ['Whats the object-oriented way to become wealthy?', 'Inheritance'],
+            ['What did the router say to the doctor?', 'It hurts when IP']
         ];
 
         var variants = {
@@ -580,7 +591,7 @@
             return timeline;
         }
 
-        function getSound(files) {
+        function getSound(files, type) {
             var sound = files;
             if (typeof files !== 'string') {
                 var totalRandom = 0;
@@ -603,13 +614,57 @@
                             break;
                         }
                     }
-                    if (pickedRandomObjects.indexOf(sound) === -1) {
-                        pickedRandomObjects.push(sound);
-                        break;
+
+                    if (type === 'file' || !isInRecentJokes(sound, totalRandom)) {
+                        if (pickedRandomObjects.indexOf(sound) === -1) {
+                            pickedRandomObjects.push(sound);
+                            break;
+                        }
                     }
                 }
             }
             return sound;
+        }
+
+        var recentJokesCounters = [];
+        function loadRecentJokesCounters() {
+            var savedRecentJokes = window.localStorage.getItem('recentJokes');
+            if (savedRecentJokes) {
+                recentJokesCounters = JSON.parse(savedRecentJokes);
+            }
+        }
+
+        function saveRecentJokesCounters() {
+            window.localStorage.setItem('recentJokes', JSON.stringify(recentJokesCounters));
+        }
+
+        function decreaseRecentJokesCounters() {
+            for (var i = 0; i < recentJokesCounters.length; i++) {
+                if (--recentJokesCounters[i].count <= 0) {
+                    recentJokesCounters.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function isInRecentJokes(joke, noReuseUntilCounter) {
+            var isInRecentJokes = false;
+            var jokeSHA = joke.hashCode();
+
+            decreaseRecentJokesCounters();
+
+            for (var i = 0; i < recentJokesCounters.length; i++) {
+                if (recentJokesCounters[i].sha == jokeSHA) {
+                    isInRecentJokes = true;
+                    break;
+                }
+            }
+
+            if (!isInRecentJokes) {
+                recentJokesCounters.push({sha: jokeSHA, count: noReuseUntilCounter});
+            }
+
+            return isInRecentJokes;
         }
 
         function createHowl(sound) {
@@ -625,10 +680,10 @@
             pickedRandomObjects.length = 0;
             for (var i = 0; i < sounds.length; i++) {
                 if (sounds[i].type === 'file') {
-                    var sound = getSound(sounds[i].sound);
+                    var sound = getSound(sounds[i].sound, 'file');
                     sounds[i].sound = createHowl(sound);
                 } else {
-                    sounds[i].sound = getSound(sounds[i].sound);
+                    sounds[i].sound = getSound(sounds[i].sound, 'text');
                 }
             }
         }
@@ -816,15 +871,17 @@
 
         function startPlankan() {
             alignDirty();
+            loadRecentJokesCounters();
             sounds = buildTimeline();
             constructSoundQueue();
+            saveRecentJokesCounters();
             restartTimeoutChain();
         }
     </script>
 </head>
 <body onload="start();">
 <div class="container-2">
-    <div class="header-2">Plankton 2.0 -- the "plankan" timer</div>
+    <div class="header-2">Plankton 2.1 -- the "plankan" timer</div>
 
     <div class="plankan-chooser">
         <select class="plankan-variants" onchange="changedVariant()"></select>
