@@ -35,11 +35,6 @@ input[type=checkbox]:checked {
 }
 
 .container {
-    width: 500px;
-}
-
-.container, .container-2 {
-    max-height: 500px;
     margin: 10px;
     border: 1px solid #fff;
     background-color: #ffffff;
@@ -49,18 +44,12 @@ input[type=checkbox]:checked {
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-}
-
-.container-2 {
-    max-height: none;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     box-sizing: border-box;
     max-width: 500px;
 }
-.mainbody,
-.header,
-.footer {
+.mainbody {
     padding: 5px;
 }
 .mainbody {
@@ -70,29 +59,6 @@ input[type=checkbox]:checked {
     overflow: auto;
 }
 .header {
-    height: 40px;
-    border-bottom: 1px solid #EEE;
-    background-color: #ffffff;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-.footer {
-    height: 40px;
-    background-color: whiteSmoke;
-    border-top: 1px solid #DDD;
-    -webkit-border-bottom-left-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-.header-2 {
     border-bottom: 1px solid #EEE;
     background-color: #ffffff;
     -webkit-border-top-left-radius: 5px;
@@ -126,7 +92,7 @@ input[type=checkbox]:checked {
     display: -webkit-box;
 }
 
-.footer-2 {
+.footer {
     background-color: whiteSmoke;
     border-top: 1px solid #DDD;
     display: -webkit-box;
@@ -214,4 +180,28 @@ input[type=checkbox]:checked {
     position: relative;
     top: 2px;
     font-size: 125%;
+}
+
+.joketypes-wrapper {
+    padding: 1em;
+    border: 1px solid lightgray;
+    margin: 1em;
+    border-radius: 1em;
+}
+
+.joketypes-wrapper h3 {
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.joketype-wrapper {
+    margin: 0.5em 0 0.5em 0;
+}
+
+.joketype-wrapper:first-of-type {
+    margin-top: 0;
+}
+
+.joketype-wrapper:last-of-type {
+    margin-bottom: 0;
 }

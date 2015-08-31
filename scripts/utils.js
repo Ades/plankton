@@ -1,4 +1,4 @@
-function iOS() {
+function isIOS() {
 
     var iDevices = [
         'iPad Simulator',

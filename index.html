@@ -47,6 +47,8 @@
             'Light travels faster than sound. This is why some people appear bright until they speak.'
         ];
 
+        var enabledJokes = [];
+
         var shortJokes = [
             ['What happens to a frog\'s car when it breaks down?', 'It gets toad away.'],
             ['What is the difference between snowmen and snowwomen?', 'Snowballs.'],
@@ -90,7 +92,10 @@
             ['Definition of a bachelor:', 'A man who has missed the opportunity to make some woman miserable.'],
             'How does a man take a bubble bath? He eats beans for dinner.',
             ['How do men sort out their laundry?', 'Filthy', 'And filthy but wearable.'],
-            ['What\'s in the toilet of the star ship enterprise?', 'The captains log.']
+            ['What\'s in the toilet of the star ship enterprise?', 'The captains log.'],
+            ['Have you ever tried to eat a clock?', 'It\'s very time consuming.'],
+            ['My friend\'s bakery burned down last night.', 'Now his business is toast.'],
+            ['Atheists don\'t solve exponential equations because they don\'t believe in higher powers.']
         ];
 
         var potentiallyOffensiveJokes = [
@@ -142,7 +147,8 @@
             ['What do you call an intelligent, good looking, sensitive man?', 'A rumor'],
             ['What do you call it when someone farts in a gay bar?', 'A love call.'],
             ['What did the pedophile say when he got out of jail?', 'I feel like a kid again!'],
-            ['What\'s the ultimate rejection?', 'When you\'re masturbating and your hand falls asleep.']
+            ['What\'s the ultimate rejection?', 'When you\'re masturbating and your hand falls asleep.'],
+            ['A wife is like a hand grenade.', 'Remove the ring, and your house is gone!']
         ];
 
         var programmingJokes = [
@@ -152,7 +158,8 @@
             ['3 Errors walk into a bar.', 'The barman says.', 'normally I\'d Throw you all out, but tonight I\'ll make an Exception.'],
             ['Why was the statement scared.', 'while the comment was not?', 'Statements are executed.'],
             ['Whats the object-oriented way to become wealthy?', 'Inheritance'],
-            ['What did the router say to the doctor?', 'It hurts when IP']
+            ['What did the router say to the doctor?', 'It hurts when IP'],
+            'To understand what recursion is, you must first understand recursion.'
         ];
 
         var variants = {
@@ -182,7 +189,7 @@
                             {
                                 time: 20,
                                 type: 'speak',
-                                sound: shortJokes
+                                sound: enabledJokes
                             },
                             {
                                 time: -20,
@@ -216,7 +223,7 @@
                             {
                                 time: 20,
                                 type: 'speak',
-                                sound: shortJokes
+                                sound: enabledJokes
                             },
                             {
                                 time: -20,
@@ -250,7 +257,7 @@
                             {
                                 time: 20,
                                 type: 'speak',
-                                sound: shortJokes
+                                sound: enabledJokes
                             },
                             {
                                 time: -20,
@@ -329,7 +336,7 @@
                             {
                                 time: 10,
                                 type: 'speak',
-                                sound: shortJokes
+                                sound: enabledJokes
                             },
                             {
                                 time: -10,
@@ -363,7 +370,7 @@
                             {
                                 time: 10,
                                 type: 'speak',
-                                sound: shortJokes
+                                sound: enabledJokes
                             },
                             {
                                 time: -10,
@@ -439,13 +446,6 @@
                 var variantsSelect = document.querySelector('.plankan-variants');
                 variantsSelect.value = lastVariant;
             }
-            var lastDirty = window.localStorage.getItem('dirt-ey');
-            document.querySelector('#dirty').checked = lastDirty === 'true';
-        }
-
-        function saveDirtyPreference() {
-            var isDirty = document.querySelector('#dirty').checked;
-            window.localStorage.setItem('dirt-ey', isDirty);
         }
 
         function changedVariant() {
@@ -458,10 +458,127 @@
             window.localStorage.setItem('lastSession', variantsSelect.value);
         }
 
+        var allJokeTypes = [
+            {name: "Clean Jokes", jokes: shortJokes, default: true},
+            {name: "Dirty Jokes", jokes: potentiallyOffensiveJokes},
+            {name: "Programming Jokes", jokes: programmingJokes}
+        ];
+
+        function initJokeTypes() {
+            var wrapper = document.querySelector('.joketypes-wrapper');
+            clearContainer(wrapper);
+
+            var title = getTitle("Joke types");
+            wrapper.appendChild(title);
+
+            for (var i = 0; i < allJokeTypes.length; i++) {
+                addJokeType(wrapper, allJokeTypes[i]);
+            }
+
+            loadJokeTypePreference();
+        }
+
+        function addJokeType(wrapper, type) {
+            var checkboxId = 'check-' + type.name.replace(/\s/g, '_');
+
+            var jokeTypeCheckbox = document.createElement('input');
+            jokeTypeCheckbox.setAttribute('type', 'checkbox');
+            jokeTypeCheckbox.setAttribute('data-name', type.name);
+            if (type.default) {
+                jokeTypeCheckbox.checked = true;
+            }
+            jokeTypeCheckbox.id = checkboxId;
+            jokeTypeCheckbox.onchange = saveJokeTypePreference;
+
+            var jokeTypeLabel = document.createElement('label');
+            jokeTypeLabel.setAttribute('for', checkboxId);
+            jokeTypeLabel.innerHTML = type.name;
+
+            var jokeType = document.createElement('div');
+            jokeType.className = 'joketype-wrapper';
+            jokeType.appendChild(jokeTypeCheckbox);
+            jokeType.appendChild(jokeTypeLabel);
+
+            wrapper.appendChild(jokeType);
+        }
+
+        function saveJokeTypePreference() {
+            var jokeTypes = document.querySelectorAll('.joketype-wrapper input[type="checkbox"]');
+            var checkedNames = getCheckedJokeTypes(jokeTypes);
+            if (!checkedNames.length) {
+                jokeTypes[0].checked = true;
+                saveJokeTypePreference();
+                return;
+            }
+            window.localStorage.setItem('joketypes', checkedNames);
+        }
+
+        function getCheckedJokeTypes(jokeTypes) {
+            var checkedNames = '';
+            for (var i = 0; i < jokeTypes.length; i++) {
+                if (jokeTypes[i].checked) {
+                    checkedNames += (checkedNames.length ? ',': '') + jokeTypes[i].getAttribute('data-name');
+                }
+            }
+            return checkedNames;
+        }
+
+        function loadJokeTypePreference() {
+            var savedJokeTypePreference = window.localStorage.getItem('joketypes');
+            if (savedJokeTypePreference) {
+                // Uncheck all
+                var allJokeTypes = document.querySelectorAll('.joketype-wrapper input[type="checkbox"]');
+                var i;
+                for (i = 0; i < allJokeTypes.length; i++) {
+                    allJokeTypes[i].checked = false;
+                }
+
+                // Check the ones saved
+                var splitted = savedJokeTypePreference.split(',');
+                for (i = 0; i < splitted.length; i++) {
+                    var jokeTypeToSelect = document.querySelector('.joketype-wrapper input[type="checkbox"][data-name="' + splitted[i] + '"]');
+                    if (jokeTypeToSelect) {
+                        jokeTypeToSelect.checked = true;
+                    }
+                }
+
+                // Save, to make sure at least one is selected
+                saveJokeTypePreference();
+            }
+        }
+
+        function alignJokes() {
+            var enabledJokeTypes = getCheckedJokeTypes(document.querySelectorAll('.joketype-wrapper input[type="checkbox"]'));
+            var jokeLists = getJokeLists(enabledJokeTypes.split(','));
+
+            // Clear list
+            enabledJokes.length = 0;
+
+            // Add one by one
+            for (var i = 0; i < jokeLists.length; i++) {
+                if (jokeLists[i].length) {
+                    for (var j = 0; j < jokeLists[i].length; j++) {
+                        enabledJokes.push(jokeLists[i][j]);
+                    }
+                }
+            }
+        }
+
+        function getJokeLists(enabledTypes) {
+            var jokeLists = [];
+            for (var i = 0; i < allJokeTypes.length; i++) {
+                if (enabledTypes.indexOf(allJokeTypes[i].name) !== -1) {
+                    jokeLists.push(allJokeTypes[i].jokes);
+                }
+            }
+            return jokeLists;
+        }
+
         function start() {
             populateVariants();
             preloadLastVariant();
             displayVariantInfo();
+            initJokeTypes();
         }
 
         /* DOM creating, removing */
@@ -834,7 +951,7 @@
             speechInstance.text = text;
             speechInstance.lang = 'en-US';
 
-            if (iOS()) {
+            if (isIOS()) {
                 speechInstance.rate = 0.3;
             }
 
@@ -859,23 +976,8 @@
             console.log(endTime - startTime);
         }
 
-        function alignDirty() {
-            var isDirty = document.querySelector('#dirty').checked;
-            for (var i = 0; i < potentiallyOffensiveJokes.length; i++) {
-                if (isDirty && shortJokes.indexOf(potentiallyOffensiveJokes[i]) === -1) {
-                    // Add joke if not in here, and dirty is turned on
-                    console.log("Added dirty joke!");
-                    shortJokes.push(potentiallyOffensiveJokes[i]);
-                } else if (!isDirty && shortJokes.indexOf(potentiallyOffensiveJokes[i]) !== -1) {
-                    // Remove joke if in here, and dirty is turned off
-                    shortJokes.splice(shortJokes.indexOf(potentiallyOffensiveJokes[i]), 1);
-                    console.log("Removed dirty joke!");
-                }
-            }
-        }
-
         function startPlankan() {
-            alignDirty();
+            alignJokes();
             loadRecentJokesCounters();
             sounds = buildTimeline();
             constructSoundQueue();
@@ -885,8 +987,8 @@
     </script>
 </head>
 <body onload="start();">
-<div class="container-2">
-    <div class="header-2">Plankton 2.2 -- the "plankan" timer</div>
+<div class="container">
+    <div class="header">Plankton 2.2 -- the "plankan" timer</div>
 
     <div class="plankan-chooser">
         <select class="plankan-variants" onchange="changedVariant()"></select>
@@ -896,14 +998,12 @@
 
     </div>
 
-    <div class="dirty-wrapper">
-        <input class="dirty-checkbox" type="checkbox" id="dirty" value="false" onchange="saveDirtyPreference()"/>
-        <label class="warning-label" for="dirty"><span class="warning-symbol">⚠</span> Dirty Jokes OK?</label>
+    <div class="joketypes-wrapper">
+
     </div>
 
-
     <input id="Start" type="button" value="Start plankan" class="start-button" onclick="startPlankan()" />
-    <div class="footer-2">Be the plank!</div>
+    <div class="footer">Be the plank!</div>
     <a href="http://jsfiddle.net/c38okrs4/12/"></a>
 </div>
 </body>
