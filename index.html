@@ -11,6 +11,8 @@
     <script type="text/javascript" src="scripts/prototype.js"></script>
     <script type="text/javascript" src="scripts/utils.js"></script>
     <script type="text/javascript">
+        var tickSound = 'tick.mp3';
+
         var countdownParts = [
             {
                 time: -3,
@@ -163,10 +165,8 @@
         ];
 
         var variants = {
-            extreme: {
-                name: 'Extreme',
-                tick: false, // TODO - Implement this - if true, will tick every x seconds (unless sound adjacent within 2 seconds)
-                background: false, // TODO - Do we really need background sound?
+            extreme5: {
+                name: 'Extreme - 5 Minutes',
                 parts: [
                     {
                         name: 'Prepare for plank',
@@ -185,6 +185,7 @@
                         name: 'Plank #1',
                         time: 62,
                         countdown: true,
+                        tick: {start: -15, interval: 5},
                         timeSounds: [
                             {
                                 time: 20,
@@ -219,6 +220,7 @@
                         name: 'Plank #2',
                         time: 62,
                         countdown: true,
+                        tick: {start: -15, interval: 5},
                         timeSounds: [
                             {
                                 time: 20,
@@ -253,6 +255,151 @@
                         name: 'Plank #3',
                         time: 62,
                         countdown: true,
+                        tick: {start: -15, interval: 5},
+                        timeSounds: [
+                            {
+                                time: 20,
+                                type: 'speak',
+                                sound: enabledJokes
+                            },
+                            {
+                                time: -20,
+                                type: 'speak',
+                                sound: 'Twenty left!'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Extra time',
+                        time: 24,
+                        countdown: true,
+                        tick: {start: -20, interval: 5},
+                        timeSounds: [
+                            {
+                                time: 1,
+                                type: 'speak',
+                                sound: 'Extra plank time!'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Plank finished',
+                        hidden: true,
+                        time: 10,
+                        timeSounds: [
+                            {
+                                time: 0,
+                                type: 'speak',
+                                sound: 'Finished!'
+                            },
+                            {
+                                time: 1,
+                                type: 'speak',
+                                sound: 'Great work!'
+                            },
+                            {
+                                time: 3,
+                                type: 'file',
+                                sound: [
+                                    {weight: 1, sound: 'FakeApplause.mp3'},
+                                    {weight: 19, sound: 'SMALL_CROWD_APPLAUSE.mp3'}
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            extreme: {
+                name: 'Extreme',
+                parts: [
+                    {
+                        name: 'Prepare for plank',
+                        hidden: true,
+                        time: 6,
+                        countdown: true,
+                        timeSounds: [
+                            {
+                                time: 0,
+                                type: 'speak',
+                                sound: 'Hi! Plankan will start in.'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Plank #1',
+                        time: 62,
+                        countdown: true,
+                        tick: {start: -15, interval: 5},
+                        timeSounds: [
+                            {
+                                time: 20,
+                                type: 'speak',
+                                sound: enabledJokes
+                            },
+                            {
+                                time: -20,
+                                type: 'speak',
+                                sound: 'Twenty left!'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Side plank or pause #1',
+                        time: 45,
+                        countdown: true,
+                        timeSounds: [
+                            {
+                                time: 10,
+                                type: 'speak',
+                                sound: cheerfulPhrases
+                            },
+                            {
+                                time: -10,
+                                type: 'speak',
+                                sound: 'Ten left!'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Plank #2',
+                        time: 62,
+                        countdown: true,
+                        tick: {start: -15, interval: 5},
+                        timeSounds: [
+                            {
+                                time: 20,
+                                type: 'speak',
+                                sound: enabledJokes
+                            },
+                            {
+                                time: -20,
+                                type: 'speak',
+                                sound: 'Twenty left!'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Side plank or pause #2',
+                        time: 45,
+                        countdown: true,
+                        timeSounds: [
+                            {
+                                time: 10,
+                                type: 'speak',
+                                sound: cheerfulPhrases
+                            },
+                            {
+                                time: -10,
+                                type: 'speak',
+                                sound: 'Ten left!'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Plank #3',
+                        time: 62,
+                        countdown: true,
+                        tick: {start: -15, interval: 5},
                         timeSounds: [
                             {
                                 time: 20,
@@ -295,8 +442,6 @@
             },
             classic: {
                 name: 'Classic',
-                tick: false, // TODO - Implement this - if true, will tick every x seconds (unless sound adjacent within 2 seconds)
-                background: false, // TODO - Do we really need background sound?
                 parts: [
                     {
                         name: 'Prepare for plank',
@@ -315,6 +460,7 @@
                         name: 'Plank #1',
                         time: 60,
                         countdown: true,
+                        tick: {start: -15, interval: 5},
                         timeSounds: [
                             {
                                 time: 20,
@@ -349,6 +495,7 @@
                         name: 'Plank #2',
                         time: 60,
                         countdown: true,
+                        tick: {start: -15, interval: 5},
                         timeSounds: [
                             {
                                 time: 20,
@@ -383,6 +530,7 @@
                         name: 'Plank #3',
                         time: 60,
                         countdown: true,
+                        tick: {start: -15, interval: 5},
                         timeSounds: [
                             {
                                 time: 20,
@@ -677,6 +825,19 @@
             });
         }
 
+        function addTicksToTimeline(timeline, absTime, partTime, part, tickStart, tickInterval) {
+            var isNegative = tickStart < 0;
+            for (var i = isNegative ? partTime + tickStart : tickStart; i < partTime; i += tickInterval) {
+                timeline.push({
+                    time: (absTime + i) * 1000,
+                    type: 'file',
+                    sound: tickSound,
+                    part: part,
+                    partStart: absTime * 1000
+                });
+            }
+        }
+
         function buildTimeline() {
             var timeline = [];
             var variantsSelect = document.querySelector('.plankan-variants');
@@ -701,6 +862,12 @@
 
                     for (j = 0; j < part.timeSounds.length; j++) {
                         addRelativePartToTimeline(timeline, accumulatedTime, partTime, part.timeSounds[j], part);
+                    }
+
+                    if (part.tick) {
+                        var tickStart = part.tick.start || 0;
+                        var tickInterval = part.tick.interval || 5;
+                        addTicksToTimeline(timeline, accumulatedTime, partTime, part, tickStart, tickInterval);
                     }
 
                     accumulatedTime += partTime;
