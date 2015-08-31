@@ -976,7 +976,14 @@
             console.log(endTime - startTime);
         }
 
+        function playSilence() {
+            createHowl('silence.mp3').play(null, function() {
+                console.log('Initiated sound of silence');
+            });
+        }
+
         function startPlankan() {
+            playSilence();
             alignJokes();
             loadRecentJokesCounters();
             sounds = buildTimeline();
