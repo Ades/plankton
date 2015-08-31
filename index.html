@@ -575,6 +575,7 @@
         }
 
         function start() {
+            playSilence();
             populateVariants();
             preloadLastVariant();
             displayVariantInfo();
@@ -983,7 +984,6 @@
         }
 
         function startPlankan() {
-            playSilence();
             alignJokes();
             loadRecentJokesCounters();
             sounds = buildTimeline();
