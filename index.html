@@ -164,6 +164,26 @@
             'To understand what recursion is, you must first understand recursion.'
         ];
 
+        var mathJokes = [
+          ['What is the deal with the circle', 'It\'s pointless!'],
+          ['What happened to the plant in math class?', 'It grew square roots.'],
+          ['How do you make seven an even number?', 'Take the s out!'],
+          ['Why is a math book always unhappy?', 'Because it always has lots of problems.'],
+          ['Why did I divide sin by tan?', 'Just cos.'],
+          ['Where do math teachers go on vacation?', 'To Times Square.'],
+          ['Why did the mutually exclusive events break up?', 'They had nothing in common.'],
+          ['What is the difference between a mathematician and a philosopher?' ,'The mathematician needs paper, pencil, and a trash bin for his work - the philosopher can do without the trash bin.'],
+          ['How do you know when you\'ve reached your Math Professors voice-mail?', ' The message is "The number you have dialed is imaginary. Please, rotate your phone by 90 degrees and try again..."'],
+          ['What did one math book say to the other?', ' Don\'t bother me I\'ve got my own problems!']
+        ];
+
+        var plankJokes = [
+          ['20 left', 'Just joking'],
+          ['3', ' 2', ' 1', ' 0', ' -1', ' -2', ' -3', ' -4', 'almost there!'],
+          ['20 left', '30 left', '40 left', 'wait for it...', '50 left'],
+          ['Hi! Plankan will end in.', '...', '...', 'soon!']
+        ];
+
         var variants = {
             extreme5: {
                 name: 'Extreme - 5 Minutes',
@@ -609,7 +629,9 @@
         var allJokeTypes = [
             {name: "Clean Jokes", jokes: shortJokes, default: true},
             {name: "Dirty Jokes", jokes: potentiallyOffensiveJokes},
-            {name: "Programming Jokes", jokes: programmingJokes}
+            {name: "Programming Jokes", jokes: programmingJokes},
+            {name: "Math Jokes", jokes: mathJokes},
+            {name: "Plank Jokes", jokes: plankJokes}
         ];
 
         function initJokeTypes() {
