@@ -1,0 +1,22 @@
+{
+  "name": "plankton",
+  "version": "1.0.0",
+  "description": "A timer for the \"the plank\" exercise",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "plankton": "node app.js",
+    "help": "node help.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Tiimber@github.com/Ades/plankton.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ades/plankton/issues"
+  },
+  "homepage": "https://github.com/Ades/plankton#readme"
+}
