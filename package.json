@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Ades/plankton/issues"
   },
-  "homepage": "https://github.com/Ades/plankton#readme"
+  "homepage": "https://github.com/Ades/plankton#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
