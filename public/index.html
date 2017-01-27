@@ -1200,10 +1200,6 @@
             speechInstance.text = text;
             speechInstance.lang = 'en-US';
 
-            if (isIOS()) {
-                speechInstance.rate = 0.3;
-            }
-
             speechInstance.onend = function () {
                 if (callback) {
                     callback();
