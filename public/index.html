@@ -238,7 +238,8 @@
             ['What\'s the difference between beer nuts and deer nuts?', 'Beer nuts are about 49 cents and deer nuts are just under a buck.'],
             ['A man said to me that he hadn\'t been to the toilet for two years.', 'I think he\'s full of shit'],
             ['I thought about going on an all almond diet.', 'But that\'s just nuts'],
-            ['Doctor, you\'ve got to help me, I\'m addicted to Twitter.', 'Doctor responds: "I don\'t follow you"']
+            ['Doctor, you\'ve got to help me, I\'m addicted to Twitter.', 'Doctor responds: "I don\'t follow you"'],
+            ['What\'s the difference between a cat and sentence?', 'The cat has claws at the end of it\'s paws and the sentence has a pause at the end of it\'s clause.']
         ];
 
         var variants = {
@@ -623,6 +624,64 @@
                     },
                     {
                         name: 'Plank finished',
+                        hidden: true,
+                        time: 10,
+                        timeSounds: [
+                            {
+                                time: 0,
+                                type: 'speak',
+                                sound: 'Finished!'
+                            },
+                            {
+                                time: 1,
+                                type: 'speak',
+                                sound: 'Great work!'
+                            },
+                            {
+                                time: 3,
+                                type: 'file',
+                                sound: 'FakeApplause.mp3'
+                            }
+                        ]
+                    }
+                ]
+            },
+            powerball90: {
+                name: 'Powerball 90s',
+                parts: [
+                    {
+                        name: 'Prepare for powerball 90 seconds',
+                        hidden: true,
+                        time: 6,
+                        countdown: true,
+                        timeSounds: [
+                            {
+                                time: 0,
+                                type: 'speak',
+                                sound: 'Hi! Powerball 90 seconds countdown will start in'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Powerball',
+                        time: 90,
+                        countdown: false,
+                        tick: {start: -20, interval: 10},
+                        timeSounds: [
+                            {
+                                time: -60,
+                                type: 'speak',
+                                sound: 'Sixty left!'
+                            },
+                            {
+                                time: -30,
+                                type: 'speak',
+                                sound: 'Thirty left!'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Powerball countdown finished',
                         hidden: true,
                         time: 10,
                         timeSounds: [
