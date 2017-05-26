@@ -20,6 +20,5 @@ const getPort = args => {
 const port = getPort(process.argv) || 3000
 
 app.listen(port, function () {
-    console.log(`Example app listening on port ${port}!`)
+    console.log(`Plankton running on port ${port}!`)
 })
-

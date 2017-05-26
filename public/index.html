@@ -1268,6 +1268,24 @@
         }
 
         function speak(text, callback) {
+            if (typeof text === 'string' || text.length === 1) {
+                // Speak one text, no need for silence in between
+                speakOne(text, callback)
+            } else {
+                var firstText = text.shift()
+                speakOne(firstText, function(err) {
+                    if (err) {
+                        callback(err);
+                    } else {
+                        setTimeout(function () {
+                            speak(text, callback)
+                        }, 200)
+                    }
+                })
+            }
+        }
+
+        function speakOne(text, callback) {
             console.log('Speak:', text);
 
             var speechInstance = new SpeechSynthesisUtterance();
@@ -1313,7 +1331,7 @@
 </head>
 <body onload="start();">
 <div class="container">
-    <div class="header">Plankton 2.4 -- the "plankan" timer</div>
+    <div class="header">Plankton 2.5 -- the "plankan" timer</div>
 
     <div class="plankan-chooser">
         <select class="plankan-variants" onchange="changedVariant()"></select>
