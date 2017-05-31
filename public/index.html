@@ -62,7 +62,8 @@
             'There is always a way.',
             'Clear your mind of can\'t',
             'Rule your mind or it will rule you.',
-            'Smile more.'
+            'Smile more.',
+            'Boing! Boom! Chack!'
         ];
 
         var enabledJokes = [];
@@ -153,7 +154,8 @@
             ['Why do Mexicans never have Sex Education and Driver\'s Education on the same day?', 'They have to give the donkey a break at some point.'],
             ['What is a pedophiles favorite part about Halloween?', 'Free delivery.'],
             ['What\'s the difference between a gay man and a freezer?', 'Freezer doesn\'t fart when you pull the meat out.'],
-            ['What kind of file do you need to turn a 15 millimeter hole into a 40 millimeter hole?', 'A pedophile.']
+            ['What kind of file do you need to turn a 15 millimeter hole into a 40 millimeter hole?', 'A pedophile.'],
+            ['What do the twin towers and gender have in common?', 'There used to be two and now it\'s too offensive to talk about.']
         ];
 
         var offensiveJokes = [
@@ -204,7 +206,8 @@
             ['Whats the object-oriented way to become wealthy?', 'Inheritance'],
             ['What did the router say to the doctor?', 'It hurts when IP'],
             ['To understand what recursion is, you must first understand recursion.'],
-            ['What do you call a model that does work for IT Companies?', 'A data model.']
+            ['What do you call a model that does work for IT Companies?', 'A data model.'],
+            ['Wife says to her programmer husband, "Go to the store and buy a loaf of bread. If they have eggs, buy a dozen."', 'Husband returns with 12 loaves of bread.']
         ];
 
         var mathJokes = [
@@ -217,7 +220,9 @@
             ['Why did the mutually exclusive events break up?', 'They had nothing in common.'],
             ['What is the difference between a mathematician and a philosopher?', 'The mathematician needs paper, pencil, and a trash bin for his work - the philosopher can do without the trash bin.'],
             ['How do you know when you\'ve reached your Math Professors voice-mail?', ' The message is "The number you have dialed is imaginary. Please, rotate your phone by 90 degrees and try again..."'],
-            ['What did one math book say to the other?', ' Don\'t bother me I\'ve got my own problems!']
+            ['What did one math book say to the other?', ' Don\'t bother me I\'ve got my own problems!'],
+            ['I poured root beer in a square glass.', 'Now I just have the beer.'],
+            ['My friend asked me to help him round up his 37 sheep.', 'I said 40.']
         ];
 
         var plankJokes = [
@@ -254,7 +259,36 @@
             ['A man said to me that he hadn\'t been to the toilet for two years.', 'I think he\'s full of shit'],
             ['I thought about going on an all almond diet.', 'But that\'s just nuts'],
             ['Doctor, you\'ve got to help me, I\'m addicted to Twitter.', 'Doctor responds: "I don\'t follow you"'],
-            ['What\'s the difference between a cat and sentence?', 'The cat has claws at the end of it\'s paws and the sentence has a pause at the end of it\'s clause.']
+            ['What\'s the difference between a cat and sentence?', 'The cat has claws at the end of it\'s paws', 'and the sentence has a pause at the end of it\'s clause.'],
+            ['I told my girlfriend she drew her eyebrows too high.', 'She seemed surprised.'],
+            ['Two clowns are eating a canibal. One turns to the other and says:', 'I think we got this joke wrong.'],
+            ['I bought my friend an elephant for his room.', 'He said, "Thanks!"', 'I said, "Don\'t mention it."'],
+            ['My friend says to me, "What rhymes with orange?"', 'I said, "No, it doesn\'t."'],
+            ['And God said to John, "Come forth and you shall be granted eternal life."', 'But John came fifth and won a toaster.'],
+            ['How many opticians does it take to change a lightbulb?', 'Is it one or two?', 'One ... or two?'],
+            ['So what if I don\'t know what Armageddon means?', 'It\'s not the end of the world.'],
+            ['What do you call a Frenchman wearing sandals?', 'Phillipe Phillope.'],
+            ['What is orange and sounds like a parrot?', 'A carrot!'],
+            ['What do you call a dog that does magic tricks?', 'A labracadabrador.'],
+            ['How do you get two whales in a car?', 'Start in England and drive west.'],
+            ['A blind man walks into a bar.', 'And a table. And a chair.'],
+            ['Why did the old man fall in the well?', 'Because he couldn\'t see that well.'],
+            ['I bought the world\'s worst thesaurus yesterday.', 'Not only is it terrible, it\'s terrible.'],
+            ['I\'ve found a job helping a one armed typist do capital letters.', 'It\'s shift work.'],
+            ['What\'s the difference between a good joke and a bad joke timing.'],
+            ['What did the pirate say when he turned 80 years old?', 'Aye matey.'],
+            ['Communism jokes aren\'t funny,', 'unless everyone gets them.'],
+            ['Two men meet on opposite sides of a river. One shoults to the other, "I need you to help me to get to the other side!"', 'The other guy replies, "You are on the other side!"'],
+            ['I couldn\'t figure out why the baseball kept getting larger. Then it hit me.'],
+            ['A guy walks into a bar and orders a fruit punch.', 'The bartender says, "Pal, if you want a punch you\'ll have to stand in the line."', 'The guy looks around, but there is no punch line.'],
+            ['People in Dubai don\'t like the Flintstones.', 'But people in Abu Dhabi do.'],
+            ['What\'s ET short for?', 'He\'s only got little legs.'],
+            ['Why aren\'t koalas actual bears?', 'They don\'t meet the koalafications.'],
+            ['It\'s hard to explain puns to klepomaniacs', 'because they always take things literally.'],
+            ['I read 10 puns hoping they would make me laugh,', 'then I realized, no pun in ten did.']
+
+
+
         ];
 
         var variants = {
@@ -1002,7 +1036,6 @@
 
                 var accumulatedTime = 0;
                 var part;
-                var timeSound;
                 var j;
 
                 for (var i = 0; i < variant.parts.length; i++) {
@@ -1134,7 +1167,6 @@
         var sounds = null;
         var queuedSound = null;
         var lastQueuedSound = null;
-        var currentPart = null;
         var currentVariant = null;
         var pickedRandomObjects = [];
         function restartTimeoutChain() {
@@ -1153,7 +1185,6 @@
                 var sound = sounds[i];
                 if (!sound.passed) {
                     // This is our next action
-                    var nextTime = sound.time;
                     sound.passed = true;
                     if (queuedSound) {
                         lastQueuedSound = queuedSound;
@@ -1272,7 +1303,7 @@
                 // Speak one text, no need for silence in between
                 speakOne(text, callback)
             } else {
-                var firstText = text.shift()
+                var firstText = text.shift();
                 speakOne(firstText, function(err) {
                     if (err) {
                         callback(err);
@@ -1346,7 +1377,7 @@
     </div>
 
     <input id="Start" type="button" value="Start plankan" class="start-button" onclick="startPlankan()" />
-    <div class="footer">Be the plank!</div>
+    <div class="footer">Start!</div>
     <a href="http://jsfiddle.net/c38okrs4/12/"></a>
 </div>
 </body>
