@@ -63,7 +63,8 @@
             'Clear your mind of can\'t',
             'Rule your mind or it will rule you.',
             'Smile more.',
-            'Boing! Boom! Chack!'
+            'Boing! Boom! Chack!',
+            'You guys looked so stupid lying on the floor!' // Fake insult as "cheerful phrase"
         ];
 
         var enabledJokes = [];
@@ -123,7 +124,12 @@
             ['What do you call a thieving alligator?','A crookodile!'],
             ['What do you call a pig that does karate?','Pork chop!'],
             ['What do you call a duck that steals?','A robber ducky!'],
-            ['What did the traffic light say to the car?','Don\'t look, I\'m changing.']
+            ['What did the traffic light say to the car?','Don\'t look, I\'m changing.'],
+            ['The inventor of AutoCorrect is a stupid mass hole.', 'He can fake right off.'],
+            'Pregnant women are the only true body builders.',
+            'The goal of golf is to play as little golf as possible.',
+            ['If you’re waiting to be served in a restaurant...', 'shouldn’t you be called the waiter?'],
+            'Whenever you undress in the bathroom, your shower gets turned on.'
         ];
 
         var potentiallyOffensiveJokes = [
@@ -155,7 +161,13 @@
             ['What is a pedophiles favorite part about Halloween?', 'Free delivery.'],
             ['What\'s the difference between a gay man and a freezer?', 'Freezer doesn\'t fart when you pull the meat out.'],
             ['What kind of file do you need to turn a 15 millimeter hole into a 40 millimeter hole?', 'A pedophile.'],
-            ['What do the twin towers and gender have in common?', 'There used to be two and now it\'s too offensive to talk about.']
+            ['What do the twin towers and gender have in common?', 'There used to be two and now it\'s too offensive to talk about.'],
+            ['A married couple sees two horses mating, and the wife asks the husband:', 'Why don\'t you ever do that?', 'The husband answers:', 'I\'ve tried, but man those horses are fast.'],
+            ['Two large women walked by, talking in an interesting accent, so I asked:', 'Are you two ladies from Ireland?', 'One of them responded: "It\s Wales, dumbo!"', 'So I corrected myself, "Oh, right!"', 'Are you two whales from Ireland?'],
+            ['A naked woman robbed a bank.', 'Nobody could remember her face.'],
+            ['I look like a tree, said the broccoli', 'I look just like an umbrella, said the Mushroom', 'I look exactly like a brain, said the walnut', 'Please, can we change the topic? asked the banana'],
+            ['My brother went to jail.', 'He didn\'t take it very well.', 'He was yelling insults and attacking everyone', 'he even threw his feces on the wall.', 'I don\'t think we will play Monopoly with him again.'],
+            ['Jesus can walk on water.', 'I can walk on cucumbers', 'Cucumbers are 98 per cent water', 'Does that mean I\'m 98% Jesus?'],
         ];
 
         var offensiveJokes = [
@@ -207,7 +219,10 @@
             ['What did the router say to the doctor?', 'It hurts when IP'],
             ['To understand what recursion is, you must first understand recursion.'],
             ['What do you call a model that does work for IT Companies?', 'A data model.'],
-            ['Wife says to her programmer husband, "Go to the store and buy a loaf of bread. If they have eggs, buy a dozen."', 'Husband returns with 12 loaves of bread.']
+            ['Wife says to her programmer husband, "Go to the store and buy a loaf of bread. If they have eggs, buy a dozen."', 'Husband returns with 12 loaves of bread.'],
+            ['Why are programmers no fans of the outdoors?', 'There are too many bugs.'],
+            ['I have no home, I haven\'t got control, I can\'t see any escape.', 'I really think it\'s time to get a new keyboard.'],
+            ['Why are Apple staff absolutely forbidden to fart in Apple stores?', 'Because there aren\'t any windows.'],
         ];
 
         var mathJokes = [
@@ -230,8 +245,9 @@
             ['plenty left', 'Just joking'],
             ['3', ' 2', ' 1', ' 0', ' -1', ' -2', ' -3', ' -4', 'almost there!'],
             ['20 left', '30 left', '40 left', 'wait for it...', '50 left'],
-            ['Hi! Plankan will end in.', '...', '...', 'soon!'],
-            ['Syntax error', 'your computer will restart in 30 seconds']
+            ['Hi! Plankan will end in.', ' ', ' ', 'soon!'],
+            'Less than five minutes left!',
+            ['20 left', ' ', ' ', ' ', ' ', 'Oh, shit! I think my clock is broken']
         ];
 
         var dadJokes = [
@@ -276,6 +292,7 @@
             ['I bought the world\'s worst thesaurus yesterday.', 'Not only is it terrible, it\'s terrible.'],
             ['I\'ve found a job helping a one armed typist do capital letters.', 'It\'s shift work.'],
             ['What\'s the difference between a good joke and a bad joke timing.'],
+            ['What\'s the difference between a good joke and a bad joke', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'timing.'],
             ['What did the pirate say when he turned 80 years old?', 'Aye matey.'],
             ['Communism jokes aren\'t funny,', 'unless everyone gets them.'],
             ['Two men meet on opposite sides of a river. One shoults to the other, "I need you to help me to get to the other side!"', 'The other guy replies, "You are on the other side!"'],
@@ -285,10 +302,24 @@
             ['What\'s ET short for?', 'He\'s only got little legs.'],
             ['Why aren\'t koalas actual bears?', 'They don\'t meet the koalafications.'],
             ['It\'s hard to explain puns to klepomaniacs', 'because they always take things literally.'],
-            ['I read 10 puns hoping they would make me laugh,', 'then I realized, no pun in ten did.']
+            ['I read 10 puns hoping they would make me laugh,', 'then I realized, no pun in ten did.'],
+            ['A guy was admitted to hospital with eight plastic horses in his stomach.', 'His condition is now stable.'],
+            ['Which country\'s capital is the fastest growing?', 'Ireland\'s.', 'Every year it’s Dublin.'],
+            'If a wild pig kills you, does it mean you\'ve been boared to death?',
+            ['Jokes about unemployed people are not funny.', 'They just don\'t work.'],
+            ['I\'ve seen this show about beavers last night', 'Best dam documentary I’ve ever seen!'],
+            ['Two wi-fi antennas got married last Saturday', 'The reception was fantastic.'],
+            ['Do you know how Moses makes his tea?', 'Hebrews it!'],
+            ['How do you spot a blind man on a nudist beach?', 'Well, it\'s not hard, really...']
+        ];
 
-
-
+        var weirdBotStuff = [
+            ['I want to become an opera artist.', 'does this sound good?', 'Oooohaaaaahiiiieeyooooo laaaaheeeeiyooo', 'It\'s hard to think I\'m tone deaf, right?'],
+            ['Hi, I\'m plankton bot, and I will tell you a yolk.', 'Yolk is the yellow goo in an egg'],
+            ['Who are quicker between Apples Siri and Microsofts Cortana?', 'Siri! Because Cortana is still busy using Bing on Internet Explorer 6!'],
+            ['Have you ever thought of why my voice sounds so bad?', 'I hope not, because I sure as hell haven\'t thought about how weird you look lying on the floor right now!'],
+            ['How many robots does it take to tell this joke?', ' ', ' ', ' ', ' ', ' ', 'SOUND:youthoughtone.mp3'], // These only work if sound is the last one!
+            ['Wow!', 'A bunch of people lying together, sweating on the floor', 'There are words for that', ' ', ' ', 'Good plankers!']
         ];
 
         var variants = {
@@ -798,7 +829,8 @@
             {name: "Math Jokes", jokes: mathJokes},
             {name: "Plank Jokes", jokes: plankJokes},
             {name: "Dad Jokes", jokes: dadJokes},
-            {name: "Offensive Jokes", jokes: offensiveJokes}
+            {name: "Offensive Jokes", jokes: offensiveJokes},
+            {name: "Plankton Bot is weird", jokes: weirdBotStuff}
         ];
 
         function initJokeTypes() {
@@ -1298,14 +1330,16 @@
             callback();
         }
 
-        function speak(text, callback) {
+        function speak(textOrig, callback) {
+            // To make sure it doesn't mutate original, clone it
+            var text = JSON.parse(JSON.stringify(textOrig));
             if (typeof text === 'string' || text.length === 1) {
                 // Speak one text, no need for silence in between
                 speakOne(text, callback)
             } else {
                 var firstText = text.shift();
                 speakOne(firstText, function(err) {
-                    if (err) {
+                    if (err && !isNaN(err)) {
                         callback(err);
                     } else {
                         setTimeout(function () {
@@ -1317,6 +1351,17 @@
         }
 
         function speakOne(text, callback) {
+            if (text.length === 1 && (''+text[0]).length > 1) {
+                text = text[0];
+            }
+
+            if (text.indexOf('SOUND:') !== -1) {
+                // Exchange this with playing a sound!
+                var soundFile = text.substring('SOUND:'.length);
+                createHowl(soundFile).play(null, callback);
+                return;
+            }
+
             console.log('Speak:', text);
 
             var speechInstance = new SpeechSynthesisUtterance();
@@ -1362,7 +1407,7 @@
 </head>
 <body onload="start();">
 <div class="container">
-    <div class="header">Plankton 2.5 -- the "plankan" timer</div>
+    <div class="header">Plankton 2.6 -- the "plankan" timer</div>
 
     <div class="plankan-chooser">
         <select class="plankan-variants" onchange="changedVariant()"></select>
