@@ -64,7 +64,9 @@
             'Rule your mind or it will rule you.',
             'Smile more.',
             'Boing! Boom! Chack!',
-            'You guys looked so stupid lying on the floor!' // Fake insult as "cheerful phrase"
+            'You guys looked so stupid lying on the floor!', // Fake insult as "cheerful phrase"
+            'Always remember: you\'re unique. just like everyone else.',
+            'Trying is the first step towards failure'
         ];
 
         var enabledJokes = [];
@@ -129,7 +131,10 @@
             'Pregnant women are the only true body builders.',
             'The goal of golf is to play as little golf as possible.',
             ['If you’re waiting to be served in a restaurant...', 'shouldn’t you be called the waiter?'],
-            'Whenever you undress in the bathroom, your shower gets turned on.'
+            'Whenever you undress in the bathroom, your shower gets turned on.',
+            ['There are three kinds of people in this world.', 'Those who can count... And those who can’t.'],
+            ['Abraham Lincoln once said:', 'The problem with stealing quotes off the internet is you never know if they are genuine.'],
+            ['My boss asked me who is the stupid one.', 'me or him?', 'I told him everyone knows he doesn\'t hire stupid people.']
         ];
 
         var potentiallyOffensiveJokes = [
@@ -168,6 +173,7 @@
             ['I look like a tree, said the broccoli', 'I look just like an umbrella, said the Mushroom', 'I look exactly like a brain, said the walnut', 'Please, can we change the topic? asked the banana'],
             ['My brother went to jail.', 'He didn\'t take it very well.', 'He was yelling insults and attacking everyone', 'he even threw his feces on the wall.', 'I don\'t think we will play Monopoly with him again.'],
             ['Jesus can walk on water.', 'I can walk on cucumbers', 'Cucumbers are 98 per cent water', 'Does that mean I\'m 98% Jesus?'],
+            ['A nurse finds a rectal thermometer in her pocket and thinks', 'some asshole has my pen']
         ];
 
         var offensiveJokes = [
@@ -206,7 +212,10 @@
             ['I told my girlfriend that she would look better with her hair back.', 'Unfortunately that\'s a mean thing to say to a cancer patient.'],
             ['How do we know Jesus wasn\'t jewish?', 'He wouldn\'t have died for our sins, he would\'ve died for the insurance money.'],
             ['What did the boy with no hands get for Christmas?', 'GLOVES!', 'Nah, just kidding... He still hasn\'t unwrapped his present.'],
-            ['Why are there so many female archaeologists?', 'Because they love digging up the past.']
+            ['Why are there so many female archaeologists?', 'Because they love digging up the past.'],
+            '9 out of 10 people enjoy gang rape.',
+            ['If a blind woman tells you your penis is big.', 'she\'s probably just pulling your leg'],
+            ['If I had a dollar for every time I\'ve been told I\'m racist', 'black people would try to rob me.']
         ];
 
         var programmingJokes = [
@@ -310,7 +319,9 @@
             ['I\'ve seen this show about beavers last night', 'Best dam documentary I’ve ever seen!'],
             ['Two wi-fi antennas got married last Saturday', 'The reception was fantastic.'],
             ['Do you know how Moses makes his tea?', 'Hebrews it!'],
-            ['How do you spot a blind man on a nudist beach?', 'Well, it\'s not hard, really...']
+            ['How do you spot a blind man on a nudist beach?', 'Well, it\'s not hard, really...'],
+            ['A recent survey showed that 6 out of 7 dwarfs are not happy.']
+
         ];
 
         var weirdBotStuff = [
@@ -319,7 +330,12 @@
             ['Who are quicker between Apples Siri and Microsofts Cortana?', 'Siri! Because Cortana is still busy using Bing on Internet Explorer 6!'],
             ['Have you ever thought of why my voice sounds so bad?', 'I hope not, because I sure as hell haven\'t thought about how weird you look lying on the floor right now!'],
             ['How many robots does it take to tell this joke?', ' ', ' ', ' ', ' ', ' ', 'SOUND:youthoughtone.mp3'], // These only work if sound is the last one!
-            ['Wow!', 'A bunch of people lying together, sweating on the floor', 'There are words for that', ' ', ' ', 'Good plankers!']
+            ['Wow!', 'A bunch of people lying together, sweating on the floor', 'There are words for that', ' ', ' ', 'Good plankers!'],
+            ['Give a man a match, and he\'ll be warm for a minute.', 'But set him on fire, and he\'ll be warm for the rest of his life.'],
+            'one hundred and 29 per cent of people exaggerate.',
+            ['When wearing a bikini, women reveal 90 % of their body.', 'Men are so polite, they only look at the covered parts.'],
+            'I can always tell when they use fake dinosaurs in movies.'
+
         ];
 
         var variants = {
@@ -1407,7 +1423,7 @@
 </head>
 <body onload="start();">
 <div class="container">
-    <div class="header">Plankton 2.6 -- the "plankan" timer</div>
+    <div class="header">Plankton 2.7 -- the "plankan" timer</div>
 
     <div class="plankan-chooser">
         <select class="plankan-variants" onchange="changedVariant()"></select>
