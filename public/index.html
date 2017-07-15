@@ -959,7 +959,61 @@
             return jokeLists;
         }
 
+        function putRandomFooterMessage() {
+            const footerMessages = [
+                'Start!',
+                'Haven\'t you planked yet?',
+                'Come on, just do it!',
+                'Why do you never call me?',
+                'One plank a day, keeps the doctor gay!',
+                'One plank a day, keeps the cat stray!',
+                'One plank a day, keeps black and white gray!',
+                'One plank a day, keeps you OK!',
+                'One plank a day, keeps pottery clay!',
+                'One plank a day, and you\'re allowed to stay!',
+                'One plank a day, keeps the month being May!',
+                'One plank a day, keeps Zombies flay!',
+                'One plank a day, keeps lasers ray!',
+                'He who planks, is planking more than he who doesn\'t!',
+                'If a plank falls in the forest and no one hears it. Will you still plank?',
+                'Plank, plank, plank!',
+                'Plank! Just why not!',
+                'Did you know that planks are made out of wood?',
+                'A plank split in half becomes two planks!',
+                'If it weren\'t for planking, you would never see me!',
+                'If you don\'t plank, you\'re nothing to me!',
+                'Would you still listen to me if my voice changed?',
+                'Wow! I can put a really long message down here. This is the longest message I\'ve ever written to you. What would happen if the webpage couldn\'t fit the whole thing? Maybe it would just get crop...',
+                '😀', '😁', '😂', '🤣', '😃', '😄', '😅', '😆', '😉', '😊', '😋', '😎', '😍', '😘', '😗', '😙',
+                '😚', '🙂', '🤗', '🤔', '😐', '😑', '😶', '🙄', '😏', '😣', '😥', '😮', '🤐', '😯', '😪', '😫',
+                '😴', '😌', '😛', '😜', '😝', '🤤', '😒', '😓', '😔', '😕', '🙃', '🤑', '😲', '🙁', '😖', '😞',
+                '😟', '😤', '😢', '😭', '😦', '😧', '😨', '😩', '😬', '😰', '😱', '😳', '😵', '😡', '😠', '😷',
+                '🤒', '🤕', '🤢', '🤧', '😇', '🤠', '🤡', '🤥', '🤓', '😈', '👿', '👹', '👺', '💀', '👻', '👽',
+                '🤖', '💩', '😺', '😸', '😹', '😻', '😼', '😽', '🙀', '😿', '😾', '👶', '👦', '👧', '👨', '👩',
+                '👴', '👵'
+            ];
+            const randomFooterMessage = function(maxLength) {
+                let randomMessage;
+                if (maxLength) {
+                    while (!randomMessage || randomMessage.length > maxLength) {
+                        randomMessage = footerMessages[Math.floor(Math.random() * footerMessages.length)];
+                    }
+                } else {
+                    randomMessage = footerMessages[Math.floor(Math.random() * footerMessages.length)];
+                }
+                return randomMessage;
+            };
+            const footer = document.querySelector('.footer');
+
+            var pickedRandom = randomFooterMessage();
+            if (pickedRandom.length < 4) {
+                pickedRandom += ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3);
+            }
+            footer.innerHTML = pickedRandom;
+        }
+
         function start() {
+            putRandomFooterMessage();
             playSilence();
             populateVariants();
             preloadLastVariant();
@@ -1337,6 +1391,7 @@
 
             if (queuedSound.type === 'speak') {
                 // Speak
+                addToldJoke(queuedSound.sound);
                 speak(queuedSound.sound, logDone);
             } else {
                 // Howl to play
@@ -1411,7 +1466,33 @@
             });
         }
 
+        function clearToldJokes() {
+            const toldJokes = document.querySelector('.plank-told-jokes');
+            toldJokes.innerHTML = '';
+        }
+
+        function isJoke(joke) {
+            return enabledJokes.indexOf(joke) !== -1;
+        }
+
+        function addToldJoke(joke) {
+            if (isJoke(joke)) {
+                const toldJokes = document.querySelector('.plank-told-jokes');
+                if (toldJokes.childNodes.length === 0) {
+                    const toldJokesTitle = document.createElement('h3');
+                    toldJokesTitle.innerHTML = 'Told jokes during this session';
+                    toldJokes.appendChild(toldJokesTitle);
+                }
+
+                const jokeNode = document.createElement('pre');
+                jokeNode.className = 'plankan-joke-node';
+                jokeNode.innerHTML = typeof joke === 'string' ? joke : joke.join('\n');
+                toldJokes.appendChild(jokeNode);
+            }
+        }
+
         function startPlankan() {
+            clearToldJokes();
             alignJokes();
             loadRecentJokesCounters();
             sounds = buildTimeline();
@@ -1423,7 +1504,7 @@
 </head>
 <body onload="start();">
 <div class="container">
-    <div class="header">Plankton 2.7 -- the "plankan" timer</div>
+    <div class="header">Plankton 2.8 -- the "plankan" timer</div>
 
     <div class="plankan-chooser">
         <select class="plankan-variants" onchange="changedVariant()"></select>
@@ -1441,5 +1522,6 @@
     <div class="footer">Start!</div>
     <a href="http://jsfiddle.net/c38okrs4/12/"></a>
 </div>
+<div class="plank-told-jokes"></div>
 </body>
 </html>
