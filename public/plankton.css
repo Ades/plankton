@@ -221,3 +221,15 @@ input[type=checkbox]:checked[data-name="Math Jokes"] + label:after {
 .joketype-wrapper:last-of-type {
     margin-bottom: 0;
 }
+
+pre.plankan-joke-node::before {
+    content: '• ';
+}
+
+.plankan-joke-count {
+    font-weight: bold;
+    font-size: 0.8em;
+    padding-left: 1em;
+    font-family: monospace;
+    color: grey;
+}

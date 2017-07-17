@@ -65,7 +65,9 @@
             'Boing! Boom! Chack!',
             'You guys looked so stupid lying on the floor!', // Fake insult as "cheerful phrase"
             'Always remember: you\'re unique. just like everyone else.',
-            'Trying is the first step towards failure'
+            'Trying is the first step towards failure',
+            ['Do I see muscles?', 'Yes, those are muscles!'],
+            ['If I could choose one of you, I would choose you on the floor.', 'The one with shirt and pants!']
         ];
 
         var enabledJokes = [];
@@ -134,13 +136,16 @@
             ['There are three kinds of people in this world.', 'Those who can count... And those who can’t.'],
             ['Abraham Lincoln once said:', 'The problem with stealing quotes off the internet is you never know if they are genuine.'],
             ['My boss asked me who is the stupid one.', 'me or him?', 'I told him everyone knows he doesn\'t hire stupid people.'],
-            ['My mother-in-law fell down a wishing well. I was amazed.', 'I never knew they worked.'],
+            ['Friends are like snowflakes...', '...if you pee on them they go away.'],
+            ['Birthdays are good for your health', 'Studies have shown if you have more birthdays, you live longer.'],
+            ['I Let A Blind Man Borrow Some Money The Other Day.', 'He said he\'ll pay me back the next time he saw me'],
             ['I went to buy some camouflage trousers the other day', 'I couldn\'t find any.'],
             ['A priest, a rabbi and a vicar walk into a bar. The barman says:', 'Is this some kind of joke?'],
             ['Dyslexic man walks into a bra'],
             ['Why do scuba divers fall backwards off of the boat?', 'Because if they fell forward, they\'d still be in the boat.'],
             ['I rang up British Telecom. I said, "I want to report a nuisance caller."', 'He said: "Not you again!"'],
             ['When Susan\'s boyfriend proposed marriage to her she said:', 'I love the simple things in life, but I don\'t want one of them for my husband.']
+        ];
         ];
 
         var potentiallyOffensiveJokes = [
@@ -179,7 +184,12 @@
             ['I look like a tree, said the broccoli', 'I look just like an umbrella, said the Mushroom', 'I look exactly like a brain, said the walnut', 'Please, can we change the topic? asked the banana'],
             ['My brother went to jail.', 'He didn\'t take it very well.', 'He was yelling insults and attacking everyone', 'he even threw his feces on the wall.', 'I don\'t think we will play Monopoly with him again.'],
             ['Jesus can walk on water.', 'I can walk on cucumbers', 'Cucumbers are 98 per cent water', 'Does that mean I\'m 98% Jesus?'],
-            ['A nurse finds a rectal thermometer in her pocket and thinks', 'some asshole has my pen']
+            ['A nurse finds a rectal thermometer in her pocket and thinks', 'some asshole has my pen'],
+            ['A blonde orders a pizza and is asked if she wants it cut into six or 12 pieces.', 'She responds, "Six, please. I could never eat 12 pieces."'],
+            ['A husband and a wife sit at the table, having dinner.', 'The woman drops a bit of tomato sauce on her white top.', 'Oh, I look like a pig!', 'The man nods... "And you dropped tomato sauce on your top!"'],
+            ['When 2 people have sex it\'s called a twosome.', 'When 3 people do it it\'s called a threesome', 'I guess that\'s why they call me handsome...'],
+            ['Two blondes finds a mirror.', 'One of them picks it up, looks into it, and says, "Hey, I know this person! I\'ve seen her somewhere before."', 'The other takes the mirror, looks into it, and says, "You\'re so stupid! Of course you have -- that\'s me!"'],
+            ['My dad died when we couldn\'t remember his blood type.', 'As he died, he kept insisting for us to "be positive", but it\'s hard without him.']
         ];
 
         var offensiveJokes = [
@@ -221,6 +231,19 @@
             ['Why are there so many female archaeologists?', 'Because they love digging up the past.'],
             '9 out of 10 people enjoy gang rape.',
             ['If a blind woman tells you your penis is big.', 'she\'s probably just pulling your leg'],
+            ['If I had a dollar for every time I\'ve been told I\'m racist', 'black people would try to rob me.'],
+            ['What did the penis say to the condom?', 'Cover me im going in!'],
+            ['Why is Santa so jolly?', 'Because he knows where all the naughty girls live.'],
+            ['What should you do if your girlfriend starts smoking?', 'Slow down. And possibly use a lubricant.'],
+            ['What did the cannibal do after he dumped his girlfriend?', 'Wiped his ass.'],
+            ['When do you kick a dwarf in the balls?', 'When he is standing next to your miss saying her hair smells nice.'],
+            ['What\'s the difference between a tire and 365 used condoms?', 'One\'s a Goodyear.', 'The other\'s a great year.'],
+            ['What\'s the difference between a Catholic priest and a zit?', 'A zit will wait until you’re twelve before it comes on your face.'],
+            ['What do a penis and a Rubik’s Cubes have in common?', 'The more you play with it, the harder it gets.'],
+            ['What do you call the useless piece of skin on a dick?', 'The man.'],
+            ['Why do vegetarians give good head?', 'Beause they\'re used to eating nuts.'],
+            ['How do you make your girlfriend scream during sex?', 'Call and tell her about it.'],
+            ['What do boobs and toys have in common?', 'They were both originally made for kids, but daddies end up playing with them.'],
             ['If I had a dollar for every time I\'ve been told I\'m racist', 'black people would try to rob me.'],
             ['What do you get when you put 50 lawyers in a room with 50 lesbians?', 'One hundred people who don\'t do dick.']
         ];
@@ -331,7 +354,6 @@
             ['A recent survey showed that 6 out of 7 dwarfs are not happy.'],
             ['I went to the zoo the other day, there was only one dog in it', 'It was a shitzu.'],
             ['Four fonts walk into a bar. The barman says:', 'Oi - get out! We don\'t want your type in here.']
-
         ];
 
         var weirdBotStuff = [
@@ -345,7 +367,6 @@
             'one hundred and 29 per cent of people exaggerate.',
             ['When wearing a bikini, women reveal 90 % of their body.', 'Men are so polite, they only look at the covered parts.'],
             'I can always tell when they use fake dinosaurs in movies.'
-
         ];
 
         var variants = {
@@ -889,6 +910,11 @@
             jokeTypeLabel.setAttribute('for', checkboxId);
             jokeTypeLabel.innerHTML = type.name;
 
+            var jokeTypeCount = document.createElement('span');
+            jokeTypeCount.className = 'plankan-joke-count';
+            jokeTypeCount.innerHTML = '(' + type.jokes.length + ')';
+            jokeTypeLabel.appendChild(jokeTypeCount);
+
             var jokeType = document.createElement('div');
             jokeType.className = 'joketype-wrapper';
             jokeType.appendChild(jokeTypeCheckbox);
@@ -969,7 +995,61 @@
             return jokeLists;
         }
 
+        function putRandomFooterMessage() {
+            const footerMessages = [
+                'Start!',
+                'Haven\'t you planked yet?',
+                'Come on, just do it!',
+                'Why do you never call me?',
+                'One plank a day, keeps the doctor gay!',
+                'One plank a day, keeps the cat stray!',
+                'One plank a day, keeps black and white gray!',
+                'One plank a day, keeps you OK!',
+                'One plank a day, keeps pottery clay!',
+                'One plank a day, and you\'re allowed to stay!',
+                'One plank a day, keeps the month being May!',
+                'One plank a day, keeps Zombies flay!',
+                'One plank a day, keeps lasers ray!',
+                'He who planks, is planking more than he who doesn\'t!',
+                'If a plank falls in the forest and no one hears it. Will you still plank?',
+                'Plank, plank, plank!',
+                'Plank! Just why not!',
+                'Did you know that planks are made out of wood?',
+                'A plank split in half becomes two planks!',
+                'If it weren\'t for planking, you would never see me!',
+                'If you don\'t plank, you\'re nothing to me!',
+                'Would you still listen to me if my voice changed?',
+                'Wow! I can put a really long message down here. This is the longest message I\'ve ever written to you. What would happen if the webpage couldn\'t fit the whole thing? Maybe it would just get crop...',
+                '😀', '😁', '😂', '🤣', '😃', '😄', '😅', '😆', '😉', '😊', '😋', '😎', '😍', '😘', '😗', '😙',
+                '😚', '🙂', '🤗', '🤔', '😐', '😑', '😶', '🙄', '😏', '😣', '😥', '😮', '🤐', '😯', '😪', '😫',
+                '😴', '😌', '😛', '😜', '😝', '🤤', '😒', '😓', '😔', '😕', '🙃', '🤑', '😲', '🙁', '😖', '😞',
+                '😟', '😤', '😢', '😭', '😦', '😧', '😨', '😩', '😬', '😰', '😱', '😳', '😵', '😡', '😠', '😷',
+                '🤒', '🤕', '🤢', '🤧', '😇', '🤠', '🤡', '🤥', '🤓', '😈', '👿', '👹', '👺', '💀', '👻', '👽',
+                '🤖', '💩', '😺', '😸', '😹', '😻', '😼', '😽', '🙀', '😿', '😾', '👶', '👦', '👧', '👨', '👩',
+                '👴', '👵'
+            ];
+            const randomFooterMessage = function(maxLength) {
+                let randomMessage;
+                if (maxLength) {
+                    while (!randomMessage || randomMessage.length > maxLength) {
+                        randomMessage = footerMessages[Math.floor(Math.random() * footerMessages.length)];
+                    }
+                } else {
+                    randomMessage = footerMessages[Math.floor(Math.random() * footerMessages.length)];
+                }
+                return randomMessage;
+            };
+            const footer = document.querySelector('.footer');
+
+            var pickedRandom = randomFooterMessage();
+            if (pickedRandom.length < 4) {
+                pickedRandom += ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3);
+            }
+            footer.innerHTML = pickedRandom;
+        }
+
         function start() {
+            putRandomFooterMessage();
             playSilence();
             populateVariants();
             preloadLastVariant();
@@ -1347,6 +1427,7 @@
 
             if (queuedSound.type === 'speak') {
                 // Speak
+                addToldJoke(queuedSound.sound);
                 speak(queuedSound.sound, logDone);
             } else {
                 // Howl to play
@@ -1421,7 +1502,33 @@
             });
         }
 
+        function clearToldJokes() {
+            const toldJokes = document.querySelector('.plank-told-jokes');
+            toldJokes.innerHTML = '';
+        }
+
+        function isJoke(joke) {
+            return enabledJokes.indexOf(joke) !== -1;
+        }
+
+        function addToldJoke(joke) {
+            if (isJoke(joke)) {
+                const toldJokes = document.querySelector('.plank-told-jokes');
+                if (toldJokes.childNodes.length === 0) {
+                    const toldJokesTitle = document.createElement('h3');
+                    toldJokesTitle.innerHTML = 'Told jokes during this session';
+                    toldJokes.appendChild(toldJokesTitle);
+                }
+
+                const jokeNode = document.createElement('pre');
+                jokeNode.className = 'plankan-joke-node';
+                jokeNode.innerHTML = typeof joke === 'string' ? joke : joke.join('\n');
+                toldJokes.appendChild(jokeNode);
+            }
+        }
+
         function startPlankan() {
+            clearToldJokes();
             alignJokes();
             loadRecentJokesCounters();
             sounds = buildTimeline();
@@ -1433,7 +1540,7 @@
 </head>
 <body onload="start();">
 <div class="container">
-    <div class="header">Plankton 2.7.1 — the "plankan" timer</div>
+    <div class="header">Plankton 2.9 -- the "plankan" timer</div>
 
     <div class="plankan-chooser">
         <select class="plankan-variants" onchange="changedVariant()"></select>
@@ -1451,5 +1558,6 @@
     <div class="footer">Start!</div>
     <a href="http://jsfiddle.net/c38okrs4/12/"></a>
 </div>
+<div class="plank-told-jokes"></div>
 </body>
 </html>
