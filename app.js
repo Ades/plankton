@@ -17,7 +17,7 @@ const getPort = args => {
     return customPortCommand && parseInt(customPortCommand.substr(`--port=`.length), 10)
 }
 
-const port = getPort(process.argv) || 3000
+const port = process.env.PORT || getPort(process.argv) || 3000
 
 app.listen(port, function () {
     console.log(`Plankton running on port ${port}!`)
