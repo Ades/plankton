@@ -199,7 +199,7 @@ input[type=checkbox]:checked[data-name="Math Jokes"] + label:after {
 }
 
 .joketypes-wrapper {
-    padding: 1em;
+    padding: 0.25em;
     border: 1px solid lightgray;
     margin: 1em;
     border-radius: 1em;

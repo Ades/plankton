@@ -10,6 +10,7 @@
     <script type="text/javascript" src="howler.js/howler.min.js"></script>
     <script type="text/javascript" src="scripts/prototype.js"></script>
     <script type="text/javascript" src="scripts/utils.js"></script>
+    <script type="text/javascript" src="scripts/limericks.js"></script>
     <script type="text/javascript">
         var tickSound = 'tick.mp3';
 
@@ -891,7 +892,8 @@
             {name: "Plank Jokes", jokes: plankJokes},
             {name: "Dad Jokes", jokes: dadJokes},
             {name: "Offensive Jokes", jokes: offensiveJokes},
-            {name: "Plankton Bot is weird", jokes: weirdBotStuff}
+            {name: "Plankton Bot is weird", jokes: weirdBotStuff},
+            {name: "Limericks", jokes: limericksFunny}
         ];
 
         function initJokeTypes() {
@@ -1553,25 +1555,23 @@
     </script>
 </head>
 <body onload="start();">
-<div class="container">
-    <div class="header">Plankton 2.9.5 — the "plankan" timer</div>
+    <div class="container">
+        <div class="header">Plankton 2.9.6 — the "plankan" timer</div>
 
-    <div class="plankan-chooser">
-        <select class="plankan-variants" onchange="changedVariant()"></select>
+        <div class="plankan-chooser">
+            <select class="plankan-variants" onchange="changedVariant()"></select>
+        </div>
+
+        <div class="plank-info"></div>
+
+        <div class="joketypes-wrapper">
+
+        </div>
+
+        <input id="Start" type="button" value="Start plankan" class="start-button" onclick="startPlankan()" />
+        <div class="footer">Start!</div>
+        <a href="http://jsfiddle.net/c38okrs4/12/"></a>
     </div>
-
-    <div class="plank-info">
-
-    </div>
-
-    <div class="joketypes-wrapper">
-
-    </div>
-
-    <input id="Start" type="button" value="Start plankan" class="start-button" onclick="startPlankan()" />
-    <div class="footer">Start!</div>
-    <a href="http://jsfiddle.net/c38okrs4/12/"></a>
-</div>
-<div class="plank-told-jokes"></div>
+    <div class="plank-told-jokes"></div>
 </body>
 </html>
