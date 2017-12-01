@@ -154,7 +154,6 @@
             ['What do you call a cheap circumcision?', 'A rip-off'],
             'Don\'t let an extra chromosome get you down.',
             'Life is like toilet paper, you\'re either on a roll or taking shit from some asshole.',
-            ['One day, a little boy wrote to Santa Clause.', 'Please send me a sister.', 'Santa Clause wrote him back.', 'Ok, send me your mother.'],
             ['Why can\'t Ken get Barbie pregnant?', 'because he comes in another box'],
             ['Did you hear about the gay security guard who got fired from his job at the sperm bank?', 'He got caught drinking on the job.'],
             ['What did the elephant say to the naked man?', 'How do you breathe through something so small?'],
@@ -201,7 +200,6 @@
             ['Why can\'t blondes count to 70?', 'Because 69 is a bit of a mouthful.'],
             ['What do the Mafia and a pussy have in common?', 'One slip of the tongue, and you\'re in deep shit.'],
             ['Three words to ruin a man\'s ego...?', 'Is it in?'],
-            ['Why doesn\'t Santa have any kids?', 'He only comes once a year.'],
             ['Who can make more money in a week, a drug dealer or a prostitute?', 'The prostitute because she can wash and resell her crack.'],
             ['Why don\'t women have men\'s brains?' , 'Because they don\'t have penises to put them in.'],
             ['What\'s the difference between a bitch and a whore?', 'A whore sleeps with everybody at the party, and a bitch sleeps with everybody at the party except you.'],
@@ -230,13 +228,11 @@
             ['A man runs over a woman. Whose fault is it?', 'The mans, because he shouldn\'t be driving in the kitchen.'],
             ['I told my girlfriend that she would look better with her hair back.', 'Unfortunately that\'s a mean thing to say to a cancer patient.'],
             ['How do we know Jesus wasn\'t jewish?', 'He wouldn\'t have died for our sins, he would\'ve died for the insurance money.'],
-            ['What did the boy with no hands get for Christmas?', 'GLOVES!', 'Nah, just kidding... He still hasn\'t unwrapped his present.'],
             ['Why are there so many female archaeologists?', 'Because they love digging up the past.'],
             '9 out of 10 people enjoy gang rape.',
             ['If a blind woman tells you your penis is big.', 'she\'s probably just pulling your leg'],
             ['If I had a dollar for every time I\'ve been told I\'m racist', 'black people would try to rob me.'],
             ['What did the penis say to the condom?', 'Cover me im going in!'],
-            ['Why is Santa so jolly?', 'Because he knows where all the naughty girls live.'],
             ['What should you do if your girlfriend starts smoking?', 'Slow down. And possibly use a lubricant.'],
             ['What did the cannibal do after he dumped his girlfriend?', 'Wiped his ass.'],
             ['When do you kick a dwarf in the balls?', 'When he is standing next to your miss saying her hair smells nice.'],
@@ -313,7 +309,6 @@
             ['What\'s the difference between a hippo and a zippo?', 'One is really heavy, the other is a little lighter.'],
             ['Did you hear about the restaurant on the moon?', 'The food is great, but there\'s just no atmosphere.'],
             ['I have kleptomania', 'but when it gets bad, I take something for it'],
-            ['Why was Santa\'s little helper feeling depressed?', 'Because he had low elf esteem'],
             ['To the man in the wheelchair that stole my camouflage jacket:', 'You can hide, but you can\'t run'],
             ['A ham sandwich walks into a bar and orders a beer.', 'Bartender says: "Sorry, we don\'t serve food here."'],
             ['I\'m on a whiskey diet', 'I\'ve lost four days already'],
@@ -384,6 +379,28 @@
             'I think one of my dads might be gay.',
             ['Roses are red.', 'That part is true.', 'But violets are purple, not fucking blue.'],
             'Bill Gates has pledged to fund Trump\'s wall on the condition he gets to install windows on it.'
+        ];
+
+        var christmasJokes = [
+            ['What did the boy with no hands get for Christmas?', 'GLOVES!', 'Nah, just kidding... He still hasn\'t unwrapped his present.'],
+            ['One day, a little boy wrote to Santa Clause.', 'Please send me a sister.', 'Santa Clause wrote him back.', 'Ok, send me your mother.'],
+            ['Why doesn\'t Santa have any kids?', 'He only comes once a year, and when he does, it\'s down the chimney.'],
+            ['Why is Santa so jolly?', 'Because he knows where all the naughty girls live.'],
+            ['Why was Santa\'s little helper feeling depressed?', 'Because he had low elf esteem'],
+            ['What do you call an elf who sings?', 'A wrapper'],
+            ['Why is Christmas just like your job?', 'You do all the work and the fat guy with the suit gets all the credit.'],
+            ['Why did Santa send his daughter to college?', 'To keep her off the North Pole'],
+            ['What do you call a gingerbread man with one leg bitten off?', 'Limp Bizkit'],
+            ['What do you call Santa living at the South Pole?', 'A lost clause.'],
+            ['Why did the Grinch go to the liquor store?', 'He was looking for the holiday spirit.'],
+            ['What do you call people who are afraid of Santa Claus?', 'Claustrophobic.'],
+            ['What\'s the difference between Tiger Woods and Santa?', 'Santa stopped at 3 ho\'s.'],
+            ['What do the female reindeer do when Santa takes the male reindeer out on Christmas Eve?', 'They go into town, and blow a few bucks.'],
+            ['How does a Jew celebrate Christmas?', 'He installs a parking meter on the roof.'],
+            ['Why did the snowman have a smile on his face?', 'Because the snowblower was coming down the block.'],
+            ['Why are Christmas trees better than Men?', 'Even the small ones give satisfaction'],
+            ['What do hip hop artists do on Christmas?', 'Unwrap.'],
+            ['Last Christmas I gave you my heart', 'but the very next day', 'your body rejected the transplant and you died.']
         ];
 
         var variants = {
@@ -895,7 +912,8 @@
             {name: "Dad Jokes", jokes: dadJokes},
             {name: "Offensive Jokes", jokes: offensiveJokes},
             {name: "Plankton Bot is weird", jokes: weirdBotStuff},
-            {name: "Limericks", jokes: limericksFunny}
+            {name: "Limericks", jokes: limericksFunny},
+            {name: "Christmas Jokes", jokes: christmasJokes}
         ];
 
         function initJokeTypes() {
@@ -1558,7 +1576,7 @@
 </head>
 <body onload="start();">
     <div class="container">
-        <div class="header">Plankton 2.9.7 — the "plankan" timer</div>
+        <div class="header">Plankton 2.10.0 — the "plankan" timer</div>
 
         <div class="plankan-chooser">
             <select class="plankan-variants" onchange="changedVariant()"></select>
