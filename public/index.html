@@ -1124,7 +1124,6 @@
 
         function start() {
             putRandomFooterMessage();
-            playSilence();
             populateVariants();
             preloadLastVariant();
             displayVariantInfo();
@@ -1602,6 +1601,7 @@
         }
 
         function startPlankan() {
+            playSilence();
             clearToldJokes();
             alignJokes();
             loadRecentJokesCounters();
@@ -1614,7 +1614,7 @@
 </head>
 <body onload="start();">
     <div class="container">
-        <div class="header">Plankton 2.10.2 — the "plankan" timer</div>
+        <div class="header">Plankton 2.10.3 — the "plankan" timer</div>
 
         <div class="plankan-chooser">
             <select class="plankan-variants" onchange="changedVariant()"></select>
