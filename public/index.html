@@ -1122,14 +1122,13 @@
             footer.innerHTML = pickedRandom;
         }
 
-        // let context
         function start() {
-            // context = new AudioContext();
-            putRandomFooterMessage();
-            populateVariants();
-            preloadLastVariant();
-            displayVariantInfo();
-            initJokeTypes();
+            playSilence()
+            putRandomFooterMessage()
+            populateVariants()
+            preloadLastVariant()
+            displayVariantInfo()
+            initJokeTypes()
         }
 
         /* DOM creating, removing */
@@ -1574,7 +1573,7 @@
 
         const playSound = (sound, callBack) => {
             let howl = createHowl(sound)
-            howl.once('load', () => howl.play())
+            // howl.once('load', () => howl.play())
             howl.play()
             howl.on('end', () => {
                 console.log('Played:',sound.split('.')[0])
@@ -1583,7 +1582,7 @@
         }
 
         const playSilence = playSound.bind(this,'silence.mp3')
-        const playBeep = playSound.bind(this,'Intercom-beep-sound.mp3')
+        const playTick = playSound.bind(this,'tick.mp3')
 
         function clearToldJokes() {
             const toldJokes = document.querySelector('.plank-told-jokes');
@@ -1620,15 +1619,6 @@
             saveRecentJokesCounters();
             restartTimeoutChain();
         }
-
-        // function resumeSound() {
-        //     context.resume().then(() => {
-        //         console.log('Playback resumed successfully');
-        //     });
-        // }
-
-        // let inputs = document.querySelector('input')
-        // inputs && inputs.addEventListener('click', resumeSound);
     </script>
 </head>
 <body onload="start();">
@@ -1646,7 +1636,7 @@
         </div>
 
         <input id="Start" type="button" value="Start plankan" class="start-button" onclick="startPlankan()" />
-        <input id="beep" type="button" value="Beep" class="start-button" onclick="playSilence();playBeep()" />
+        <input id="beep" type="button" value="Tick" class="start-button" onclick="playTick()" />
         <div class="footer">Start!</div>
         <a href="http://jsfiddle.net/c38okrs4/12/"></a>
     </div>
