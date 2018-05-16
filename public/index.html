@@ -1122,7 +1122,9 @@
             footer.innerHTML = pickedRandom;
         }
 
+        // let context
         function start() {
+            // context = new AudioContext();
             putRandomFooterMessage();
             populateVariants();
             preloadLastVariant();
@@ -1354,7 +1356,7 @@
 
         function createHowl(sound) {
             return new Howl({
-                urls: [sound],
+                src: [sound],
                 autoplay: false,
                 loop: false,
                 volume: 0.5
@@ -1505,7 +1507,8 @@
             } else {
                 // Howl to play
                 console.log('Play sound');
-                queuedSound.sound.play(null, logDone);
+                queuedSound.sound.on('end', logDone)
+                queuedSound.sound.play();
             }
             callback();
         }
@@ -1538,7 +1541,7 @@
             if (text.indexOf('SOUND:') !== -1) {
                 // Exchange this with playing a sound!
                 var soundFile = text.substring('SOUND:'.length);
-                createHowl(soundFile).play(null, callback);
+                playSound(soundFile, callback);
                 return;
             }
 
@@ -1569,11 +1572,18 @@
             console.log(endTime - startTime);
         }
 
-        function playSilence() {
-            createHowl('silence.mp3').play(null, function() {
-                console.log('Initiated sound of silence');
-            });
+        const playSound = (sound, callBack) => {
+            let howl = createHowl(sound)
+            howl.once('load', () => howl.play())
+            howl.play()
+            howl.on('end', () => {
+                console.log('Played:',sound.split('.')[0])
+                callBack && callBack()
+            })
         }
+
+        const playSilence = playSound.bind(this,'silence.mp3')
+        const playBeep = playSound.bind(this,'Intercom-beep-sound.mp3')
 
         function clearToldJokes() {
             const toldJokes = document.querySelector('.plank-told-jokes');
@@ -1610,11 +1620,20 @@
             saveRecentJokesCounters();
             restartTimeoutChain();
         }
+
+        // function resumeSound() {
+        //     context.resume().then(() => {
+        //         console.log('Playback resumed successfully');
+        //     });
+        // }
+
+        // let inputs = document.querySelector('input')
+        // inputs && inputs.addEventListener('click', resumeSound);
     </script>
 </head>
 <body onload="start();">
     <div class="container">
-        <div class="header">Plankton 2.10.3 — the "plankan" timer</div>
+        <div class="header">Plankton 2.10.4 — the "plankan" timer</div>
 
         <div class="plankan-chooser">
             <select class="plankan-variants" onchange="changedVariant()"></select>
@@ -1627,6 +1646,7 @@
         </div>
 
         <input id="Start" type="button" value="Start plankan" class="start-button" onclick="startPlankan()" />
+        <input id="beep" type="button" value="Beep" class="start-button" onclick="playSilence();playBeep()" />
         <div class="footer">Start!</div>
         <a href="http://jsfiddle.net/c38okrs4/12/"></a>
     </div>
