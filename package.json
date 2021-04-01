@@ -1,6 +1,6 @@
 {
   "name": "plankton",
-  "version": "2.11.0",
+  "version": "2.11.1",
   "description": "A timer for the \"the plank\" exercise",
   "main": "app.js",
   "scripts": {
