@@ -2,17 +2,17 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Plankan timer</title>
 
-    <link rel="stylesheet" type="text/css" href="plankton.css">
+    <link href="plankton.css" rel="stylesheet" type="text/css">
 
-    <script type="text/javascript" src="howler.js/howler.min.js"></script>
-    <script type="text/javascript" src="scripts/prototype.js"></script>
-    <script type="text/javascript" src="scripts/utils.js"></script>
-    <script type="text/javascript" src="scripts/limericks.js"></script>
+    <script src="howler.js/howler.min.js" type="text/javascript"></script>
+    <script src="scripts/prototype.js" type="text/javascript"></script>
+    <script src="scripts/utils.js" type="text/javascript"></script>
+    <script src="scripts/limericks.js" type="text/javascript"></script>
     <script type="text/javascript">
-        var tickSound = 'tick.mp3';
+        var tickSound = 'tick.mp3'
 
         var countdownParts = [
             {
@@ -35,7 +35,7 @@
                 type: 'file',
                 sound: 'Intercom-beep-sound.mp3'
             }
-        ];
+        ]
 
         var cheerfulPhrases = [
             'Keep on!', 'Good work!', 'Be strong!', 'Live long and prosper.', 'All is well.', 'Remain cheerful!',
@@ -69,10 +69,15 @@
             'Trying is the first step towards failure',
             ['Do I see muscles?', 'Yes, those are muscles!'],
             ['If I could choose one of you, I would choose you on the floor.', 'The one with shirt and pants!'],
-            'Keep calm and carry on.'
-        ];
+            'Keep calm and carry on.',
+            'Whabbadubba lubb dubb!',
+            'Cowabunga!',
+            'The best way to cheer yourself up is to try to cheer somebody else up.',
+            'Good words are worth much, and cost little.',
+            'Never hurry. Take plenty of exercise. Always be cheerful. Take all the sleep you need. You may expect to be well.'
+        ]
 
-        var enabledJokes = [];
+        var enabledJokes = []
 
         var shortJokes = [
             ['What happens to a frog\'s car when it breaks down?', 'It gets toad away.'],
@@ -121,15 +126,15 @@
             ['Have you ever tried to eat a clock?', 'It\'s very time consuming.'],
             ['My friend\'s bakery burned down last night.', 'Now his business is toast.'],
             ['Atheists don\'t solve exponential equations because they don\'t believe in higher powers.'],
-            ['What kind of shorts do clouds wear?','Thunderwear!'],
+            ['What kind of shorts do clouds wear?', 'Thunderwear!'],
             ['Becoming a vegetarian is a big missed steak.'],
-            ['What do you call an alligator in a vest?','An investigator!'],
-            ['How do you organize a space party?','You planet!'],
-            ['Why did the banana go to the doctor?','It wasn\'t peeling well.'],
-            ['What do you call a thieving alligator?','A crookodile!'],
-            ['What do you call a pig that does karate?','Pork chop!'],
-            ['What do you call a duck that steals?','A robber ducky!'],
-            ['What did the traffic light say to the car?','Don\'t look, I\'m changing.'],
+            ['What do you call an alligator in a vest?', 'An investigator!'],
+            ['How do you organize a space party?', 'You planet!'],
+            ['Why did the banana go to the doctor?', 'It wasn\'t peeling well.'],
+            ['What do you call a thieving alligator?', 'A crookodile!'],
+            ['What do you call a pig that does karate?', 'Pork chop!'],
+            ['What do you call a duck that steals?', 'A robber ducky!'],
+            ['What did the traffic light say to the car?', 'Don\'t look, I\'m changing.'],
             ['The inventor of AutoCorrect is a stupid mass hole.', 'He can fake right off.'],
             'Pregnant women are the only true body builders.',
             'The goal of golf is to play as little golf as possible.',
@@ -174,7 +179,43 @@
             ["I was gonna tell you a time-traveling joke, but you didn’t like it."],
             ["I have a question to all mind readers."],
             ["The most famous person in my neighborhood is in the Guiness book of records.", "He's had 43 concussions.", "He lives very close", "in fact just a stones' throw away."],
-        ];
+            // Stephen Wright
+            `I'd kill for a Nobel Peace Prize.`,
+            ['Borrow money from pessimists', `they don't expect it back.`],
+            `Half the people you know are below average.`
+                `99% of lawyers give the rest a bad name.`,
+            `82.7% of all statistics are made up on the spot.`,
+            `A conscience is what hurts when all your other parts feel so good.`,
+            `A clear conscience is usually the sign of a bad memory.`,
+            `If you want the rainbow, you got to put up with the rain.`,
+            `All those who believe in psycho kinesis, raise my hand.`,
+            [`The early bird may get the worm,`, `but the second mouse gets the cheese.`],
+            [`I almost had a psychic girlfriend,`, `But she left me before we met.`],
+            `OK, so what's the speed of dark?`,
+            `How do you tell when you're out of invisible ink?`,
+            [`If everything seems to be going well,`, ` you have obviously overlooked something.`],
+            `Depression is merely anger without enthusiasm.`,
+            [`When everything is coming your way,`, `you're in the wrong lane.`],
+            `Ambition is a poor excuse for not having enough sense to be lazy.`,
+            [`Hard work pays off in the future;`, `laziness pays off now.`],
+            [`I intend to live forever ... `, `So far, so good.`],
+            [`If Barbie is so popular, why do you have to buy her friends?`],
+            `Eagles may soar, but weasels don't get sucked into jet engines.`,
+            `What happens if you get scared half to death twice?`,
+            `My mechanic told me, "I couldn't repair your brakes, so I made your horn louder."`,
+            `Why do psychics have to ask you for your name`,
+            [`If at first you don't succeed,`, `destroy all evidence that you tried.`],
+            `A conclusion is the place where you got tired of thinking.`,
+            `Experience is something you don't get until just after you need it.`,
+            `The hardness of the butter is proportional to the softness of the bread.`,
+            [`To steal ideas from one person is plagiarism;`, `to steal from many is research.`],
+            `The problem with the gene pool is that there is no lifeguard.`,
+            [`The sooner you fall behind,`, `the more time you'll have to catch up.`],
+            [`The colder the x-ray table,`, ` the more of your body is required to be on it.`],
+            [`Everyone has a photographic memory;`, `some just don't have film.`],
+            [`If at first you don't succeed,`, `skydiving is not for you.`],
+            [`If your car could travel at the speed of light,`, ` would your headlights work?`],
+        ]
 
         var potentiallyOffensiveJokes = [
             ['What do you call a cheap circumcision?', 'A rip-off'],
@@ -241,7 +282,7 @@
             ["My grief counsellor died recently.", "Luckily, he was so good, I didn't give a shit."],
             ["Do you know if Stephen Hawking donated any of his organs?", "", "", "I really could use some spare parts fo my go-kart."],
             ["Did you know that McDonalds made a burger in the memory of Stephen Hawking?", "It consists purely of vegetagbles", "", "", "Comes with a pack of batteries."],
-        ];
+        ]
 
         var offensiveJokes = [
             ['Why did the music teacher get arrested?', 'He fingered A minor.'],
@@ -250,7 +291,7 @@
             ['What do the Mafia and a pussy have in common?', 'One slip of the tongue, and you\'re in deep shit.'],
             ['Three words to ruin a man\'s ego...?', 'Is it in?'],
             ['Who can make more money in a week, a drug dealer or a prostitute?', 'The prostitute because she can wash and resell her crack.'],
-            ['Why don\'t women have men\'s brains?' , 'Because they don\'t have penises to put them in.'],
+            ['Why don\'t women have men\'s brains?', 'Because they don\'t have penises to put them in.'],
             ['What\'s the difference between a bitch and a whore?', 'A whore sleeps with everybody at the party, and a bitch sleeps with everybody at the party except you.'],
             ['How can you make a gay man scream twice?', 'Fudge him real hard.', 'Then wipe your dick off on his curtains.'],
             ['Why do women prefer old gynecologists?', 'Their shaky hands!'],
@@ -267,7 +308,7 @@
             ['What do a clitoris, an anniversary, and a toilet have in common?', 'Men always miss them.'],
             ['Why is the space between a woman\'s breasts and her hips called a waist?', 'Because you could easily fit another pair of tits in there.'],
             ['Why is sleeping with a man like a soap opera?', 'Just when it\'s getting interesting, they\'re finished until next time.'],
-            ['Why does the bride always wear white?',  'Well... aren\'t all kitchen appliances that colour?'],
+            ['Why does the bride always wear white?', 'Well... aren\'t all kitchen appliances that colour?'],
             ['Why do only 10% of women go to heaven?', 'Because if they all went, it would be hell.'],
             ['How many animals can you get into a pair of tights?', '10 little piggies, 2 calves, 1 beaver, 1 ass, 1 pussy, thousands of hares and a dead fish no one can ever find.'],
             ['Why does it take longer to build a blond snowman?', 'Because you have to hollow the head out.'],
@@ -345,8 +386,8 @@
             ["The circus near me held a competition to find the best contortionist.", "So I entered myself, and won."],
             ["Why was the gay guy confused after the gay gala?", "", "", "He won the award \"Greatest asshole\"."],
             ["Many men wish they had two women.", "", "one to cook and one to clean."],
-            ["I've spent the past two years, looking for my boyfriends' killer.", "", "but noone wants to do it."],
-        ];
+            ["I've spent the past two years, looking for my boyfriends' killer.", "", "but noone wants to do it."]
+        ]
 
         var programmingJokes = [
             ['Programming is like sex', 'One mistake and you have to support it for the rest of your life.'],
@@ -364,7 +405,7 @@
             ['Why are Apple staff absolutely forbidden to fart in Apple stores?', 'Because there aren\'t any windows.'],
             ['What\'s a pirate\'s least favourite letter?', 'Dear Sir, We are writing to you because you have violated copyright ...'],
             ['What makes code bad?', 'No comment!']
-        ];
+        ]
 
         var mathJokes = [
             ['What is the deal with the circle', 'It\'s pointless!'],
@@ -378,8 +419,10 @@
             ['How do you know when you\'ve reached your Math Professors voice-mail?', ' The message is "The number you have dialed is imaginary. Please, rotate your phone by 90 degrees and try again..."'],
             ['What did one math book say to the other?', ' Don\'t bother me I\'ve got my own problems!'],
             ['I poured root beer in a square glass.', 'Now I just have the beer.'],
-            ['My friend asked me to help him round up his 37 sheep.', 'I said 40.']
-        ];
+            ['My friend asked me to help him round up his 37 sheep.', 'I said 40.'],
+            ['Where are mathematicians buried?.', 'In the symmetry.'],
+            ['Who was the builder of King Arthur\'s round table?', 'Sir Cumference.'],
+        ]
 
         var plankJokes = [
             ['20 left', 'Just joking'],
@@ -389,7 +432,7 @@
             ['Hi! Plankan will end in.', ' ', ' ', 'soon!'],
             'Less than five minutes left!',
             ['20 left', ' ', ' ', ' ', ' ', 'Oh, shit! I think my clock is broken']
-        ];
+        ]
 
         var dadJokes = [
             ['I gave all my dead batteries away today...', 'free of charge'],
@@ -469,8 +512,18 @@
             ['I ate four cans of alphabet soup yesterday.', 'Had the biggest vowel movement ever.'],
             ['A man who works in a Chinese restaurant burnt himself severely while doing a stir fry.', 'Paramedics say he may never wok again.'],
             ['The guy who stole my diary have died.', 'My thoughts are with his family.'],
-            ['What\'s the name of Stephen Hawkings brother, whom he was very jelous of?', '', '', '', 'Stephen Walking'], 
-        ];
+            ['What\'s the name of Stephen Hawkings brother, whom he was very jelous of?', '', '', '', 'Stephen Walking'],
+            ['What starts with a W and ends with a T.', '', '', 'It really does, I swear.'],
+            ['What kind of bee can\'t make up its mind?', '', '', '', 'A maybee.'],
+            ['What\'s the scariest tree?', '', '', '', 'A bamboo.'],
+            ['What word in English is always spelled wrong?', '', '', '', 'Wrong!'],
+            ['What\'s a sea monster\'s favourite food?', '', '', '', 'Fish and ships!'],
+            ['What\'s the difference between a clown and an athletic rabbit?', '', '', '', 'One is a bit funny, and the other is a fit bunny.'],
+            ['What my wife is depressed, I let her color in my tatoos.', '', '', '', 'She just wants a shoulder to crayon.'],
+            ['Which body part is the most reliable?', '', '', '', 'I\'m not sure, but you can always count on your fingers.'],
+            ['Why can\'t blind people eat fish?', '', '', '', 'It\'s sea food.'],
+
+        ]
 
         var weirdBotStuff = [
             ['I want to become an opera artist.', 'does this sound good?', 'Oooohaaaaahiiiieeyooooo laaaaheeeeiyooo', 'It\'s hard to think I\'m tone deaf, right?'],
@@ -487,7 +540,7 @@
             'I think one of my dads might be gay.',
             ['Roses are red.', 'That part is true.', 'But violets are purple, not fucking blue.'],
             'Bill Gates has pledged to fund Trump\'s wall on the condition he gets to install windows on it.',
-        ];
+        ]
 
         var christmasJokes = [
             ['What did the boy with no hands get for Christmas?', 'GLOVES!', 'Nah, just kidding... He still hasn\'t unwrapped his present.'],
@@ -514,7 +567,7 @@
             ['Why did Santa bring 22 reindeer to Walmart?', 'Because what he wanted to buy cost around 20 bucks, but just in case it was more, he brought some extra doe.'],
             ['What kind of bike does Santa Claus ride?', 'A Holly Davidson.'],
             ['This Christmas I\'m taking the whole family to Lapland.', 'Which is great, because normally those clubs don\'t let kids in.']
-        ];
+        ]
 
         var variants = {
             extreme5: {
@@ -978,42 +1031,42 @@
                     }
                 ]
             }
-        };
+        }
 
         function populateVariants() {
-            var variantsSelect = document.querySelector('.plankan-variants');
+            var variantsSelect = document.querySelector('.plankan-variants')
             if (variantsSelect) {
-                clearContainer(variantsSelect);
-                var chooseOption = document.createElement('option');
-                chooseOption.style.color = 'gray';
-                chooseOption.value = '';
-                chooseOption.innerHTML = 'Which planka can you manage?';
-                variantsSelect.appendChild(chooseOption);
+                clearContainer(variantsSelect)
+                var chooseOption = document.createElement('option')
+                chooseOption.style.color = 'gray'
+                chooseOption.value = ''
+                chooseOption.innerHTML = 'Which planka can you manage?'
+                variantsSelect.appendChild(chooseOption)
                 for (var variant in variants) {
-                    var variantOption = document.createElement('option');
-                    variantOption.value = variant;
-                    variantOption.innerHTML = variants[variant].name;
-                    variantsSelect.appendChild(variantOption);
+                    var variantOption = document.createElement('option')
+                    variantOption.value = variant
+                    variantOption.innerHTML = variants[variant].name
+                    variantsSelect.appendChild(variantOption)
                 }
             }
         }
 
         function preloadLastVariant() {
-            var lastVariant = window.localStorage.getItem('lastSession');
+            var lastVariant = window.localStorage.getItem('lastSession')
             if (lastVariant) {
-                var variantsSelect = document.querySelector('.plankan-variants');
-                variantsSelect.value = lastVariant;
+                var variantsSelect = document.querySelector('.plankan-variants')
+                variantsSelect.value = lastVariant
             }
         }
 
         function changedVariant() {
-            displayVariantInfo();
-            saveLastVariant();
+            displayVariantInfo()
+            saveLastVariant()
         }
 
         function saveLastVariant() {
-            var variantsSelect = document.querySelector('.plankan-variants');
-            window.localStorage.setItem('lastSession', variantsSelect.value);
+            var variantsSelect = document.querySelector('.plankan-variants')
+            window.localStorage.setItem('lastSession', variantsSelect.value)
         }
 
         var allJokeTypes = [
@@ -1027,121 +1080,121 @@
             {name: "Plankton Bot is weird", jokes: weirdBotStuff},
             {name: "Limericks", jokes: limericksFunny},
             {name: "Christmas Jokes", jokes: christmasJokes}
-        ];
+        ]
 
         function initJokeTypes() {
-            var wrapper = document.querySelector('.joketypes-wrapper');
-            clearContainer(wrapper);
+            var wrapper = document.querySelector('.joketypes-wrapper')
+            clearContainer(wrapper)
 
-            var title = getTitle("Joke types");
-            wrapper.appendChild(title);
+            var title = getTitle("Joke types")
+            wrapper.appendChild(title)
 
             for (var i = 0; i < allJokeTypes.length; i++) {
-                addJokeType(wrapper, allJokeTypes[i]);
+                addJokeType(wrapper, allJokeTypes[i])
             }
 
-            loadJokeTypePreference();
+            loadJokeTypePreference()
         }
 
         function addJokeType(wrapper, type) {
-            var checkboxId = 'check-' + type.name.replace(/\s/g, '_');
+            var checkboxId = 'check-' + type.name.replace(/\s/g, '_')
 
-            var jokeTypeCheckbox = document.createElement('input');
-            jokeTypeCheckbox.setAttribute('type', 'checkbox');
-            jokeTypeCheckbox.setAttribute('data-name', type.name);
+            var jokeTypeCheckbox = document.createElement('input')
+            jokeTypeCheckbox.setAttribute('type', 'checkbox')
+            jokeTypeCheckbox.setAttribute('data-name', type.name)
             if (type.default) {
-                jokeTypeCheckbox.checked = true;
+                jokeTypeCheckbox.checked = true
             }
-            jokeTypeCheckbox.id = checkboxId;
-            jokeTypeCheckbox.onchange = saveJokeTypePreference;
+            jokeTypeCheckbox.id = checkboxId
+            jokeTypeCheckbox.onchange = saveJokeTypePreference
 
-            var jokeTypeLabel = document.createElement('label');
-            jokeTypeLabel.setAttribute('for', checkboxId);
-            jokeTypeLabel.innerHTML = type.name;
+            var jokeTypeLabel = document.createElement('label')
+            jokeTypeLabel.setAttribute('for', checkboxId)
+            jokeTypeLabel.innerHTML = type.name
 
-            var jokeTypeCount = document.createElement('span');
-            jokeTypeCount.className = 'plankan-joke-count';
-            jokeTypeCount.innerHTML = '(' + type.jokes.length + ')';
-            jokeTypeLabel.appendChild(jokeTypeCount);
+            var jokeTypeCount = document.createElement('span')
+            jokeTypeCount.className = 'plankan-joke-count'
+            jokeTypeCount.innerHTML = '(' + type.jokes.length + ')'
+            jokeTypeLabel.appendChild(jokeTypeCount)
 
-            var jokeType = document.createElement('div');
-            jokeType.className = 'joketype-wrapper';
-            jokeType.appendChild(jokeTypeCheckbox);
-            jokeType.appendChild(jokeTypeLabel);
+            var jokeType = document.createElement('div')
+            jokeType.className = 'joketype-wrapper'
+            jokeType.appendChild(jokeTypeCheckbox)
+            jokeType.appendChild(jokeTypeLabel)
 
-            wrapper.appendChild(jokeType);
+            wrapper.appendChild(jokeType)
         }
 
         function saveJokeTypePreference() {
-            var jokeTypes = document.querySelectorAll('.joketype-wrapper input[type="checkbox"]');
-            var checkedNames = getCheckedJokeTypes(jokeTypes);
+            var jokeTypes = document.querySelectorAll('.joketype-wrapper input[type="checkbox"]')
+            var checkedNames = getCheckedJokeTypes(jokeTypes)
             if (!checkedNames.length) {
-                jokeTypes[0].checked = true;
-                saveJokeTypePreference();
-                return;
+                jokeTypes[0].checked = true
+                saveJokeTypePreference()
+                return
             }
-            window.localStorage.setItem('joketypes', checkedNames);
+            window.localStorage.setItem('joketypes', checkedNames)
         }
 
         function getCheckedJokeTypes(jokeTypes) {
-            var checkedNames = '';
+            var checkedNames = ''
             for (var i = 0; i < jokeTypes.length; i++) {
                 if (jokeTypes[i].checked) {
-                    checkedNames += (checkedNames.length ? ',': '') + jokeTypes[i].getAttribute('data-name');
+                    checkedNames += (checkedNames.length ? ',' : '') + jokeTypes[i].getAttribute('data-name')
                 }
             }
-            return checkedNames;
+            return checkedNames
         }
 
         function loadJokeTypePreference() {
-            var savedJokeTypePreference = window.localStorage.getItem('joketypes');
+            var savedJokeTypePreference = window.localStorage.getItem('joketypes')
             if (savedJokeTypePreference) {
                 // Uncheck all
-                var allJokeTypes = document.querySelectorAll('.joketype-wrapper input[type="checkbox"]');
-                var i;
+                var allJokeTypes = document.querySelectorAll('.joketype-wrapper input[type="checkbox"]')
+                var i
                 for (i = 0; i < allJokeTypes.length; i++) {
-                    allJokeTypes[i].checked = false;
+                    allJokeTypes[i].checked = false
                 }
 
                 // Check the ones saved
-                var splitted = savedJokeTypePreference.split(',');
+                var splitted = savedJokeTypePreference.split(',')
                 for (i = 0; i < splitted.length; i++) {
-                    var jokeTypeToSelect = document.querySelector('.joketype-wrapper input[type="checkbox"][data-name="' + splitted[i] + '"]');
+                    var jokeTypeToSelect = document.querySelector('.joketype-wrapper input[type="checkbox"][data-name="' + splitted[i] + '"]')
                     if (jokeTypeToSelect) {
-                        jokeTypeToSelect.checked = true;
+                        jokeTypeToSelect.checked = true
                     }
                 }
 
                 // Save, to make sure at least one is selected
-                saveJokeTypePreference();
+                saveJokeTypePreference()
             }
         }
 
         function alignJokes() {
-            var enabledJokeTypes = getCheckedJokeTypes(document.querySelectorAll('.joketype-wrapper input[type="checkbox"]'));
-            var jokeLists = getJokeLists(enabledJokeTypes.split(','));
+            var enabledJokeTypes = getCheckedJokeTypes(document.querySelectorAll('.joketype-wrapper input[type="checkbox"]'))
+            var jokeLists = getJokeLists(enabledJokeTypes.split(','))
 
             // Clear list
-            enabledJokes.length = 0;
+            enabledJokes.length = 0
 
             // Add one by one
             for (var i = 0; i < jokeLists.length; i++) {
                 if (jokeLists[i].length) {
                     for (var j = 0; j < jokeLists[i].length; j++) {
-                        enabledJokes.push(jokeLists[i][j]);
+                        enabledJokes.push(jokeLists[i][j])
                     }
                 }
             }
         }
 
         function getJokeLists(enabledTypes) {
-            var jokeLists = [];
+            var jokeLists = []
             for (var i = 0; i < allJokeTypes.length; i++) {
                 if (enabledTypes.indexOf(allJokeTypes[i].name) !== -1) {
-                    jokeLists.push(allJokeTypes[i].jokes);
+                    jokeLists.push(allJokeTypes[i].jokes)
                 }
             }
-            return jokeLists;
+            return jokeLists
         }
 
         function putRandomFooterMessage() {
@@ -1176,25 +1229,25 @@
                 '🤒', '🤕', '🤢', '🤧', '😇', '🤠', '🤡', '🤥', '🤓', '😈', '👿', '👹', '👺', '💀', '👻', '👽',
                 '🤖', '💩', '😺', '😸', '😹', '😻', '😼', '😽', '🙀', '😿', '😾', '👶', '👦', '👧', '👨', '👩',
                 '👴', '👵'
-            ];
-            const randomFooterMessage = function(maxLength) {
-                let randomMessage;
+            ]
+            const randomFooterMessage = function (maxLength) {
+                let randomMessage
                 if (maxLength) {
                     while (!randomMessage || randomMessage.length > maxLength) {
-                        randomMessage = footerMessages[Math.floor(Math.random() * footerMessages.length)];
+                        randomMessage = footerMessages[Math.floor(Math.random() * footerMessages.length)]
                     }
                 } else {
-                    randomMessage = footerMessages[Math.floor(Math.random() * footerMessages.length)];
+                    randomMessage = footerMessages[Math.floor(Math.random() * footerMessages.length)]
                 }
-                return randomMessage;
-            };
-            const footer = document.querySelector('.footer');
-
-            var pickedRandom = randomFooterMessage();
-            if (pickedRandom.length < 4) {
-                pickedRandom += ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3);
+                return randomMessage
             }
-            footer.innerHTML = pickedRandom;
+            const footer = document.querySelector('.footer')
+
+            var pickedRandom = randomFooterMessage()
+            if (pickedRandom.length < 4) {
+                pickedRandom += ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3) + ' ' + randomFooterMessage(3)
+            }
+            footer.innerHTML = pickedRandom
         }
 
         function start() {
@@ -1208,101 +1261,102 @@
 
         /* DOM creating, removing */
         function getTitle(title, level) {
-            var titleObj = document.createElement(level || 'h3');
-            titleObj.innerHTML = title;
-            return titleObj;
+            var titleObj = document.createElement(level || 'h3')
+            titleObj.innerHTML = title
+            return titleObj
         }
 
         function getSingleBulletContent(text, time) {
-            var bulletObj = document.createElement('div');
-            bulletObj.className = 'bullet';
-            bulletObj.innerHTML = text;
+            var bulletObj = document.createElement('div')
+            bulletObj.className = 'bullet'
+            bulletObj.innerHTML = text
 
-            var bulletTimeObj = document.createElement('div');
-            bulletTimeObj.className = 'bullet-time';
-            bulletTimeObj.dataset.time = text;
-            bulletTimeObj.innerHTML = time;
-            bulletObj.appendChild(bulletTimeObj);
+            var bulletTimeObj = document.createElement('div')
+            bulletTimeObj.className = 'bullet-time'
+            bulletTimeObj.dataset.time = text
+            bulletTimeObj.innerHTML = time
+            bulletObj.appendChild(bulletTimeObj)
 
-            return bulletObj;
+            return bulletObj
         }
 
         function getPlankPart(partInfo) {
-            var part = document.createElement('li');
-            part.appendChild(getSingleBulletContent(partInfo.name, getTimeLabelForSeconds(partInfo.time)));
-            return part;
+            var part = document.createElement('li')
+            part.appendChild(getSingleBulletContent(partInfo.name, getTimeLabelForSeconds(partInfo.time)))
+            return part
         }
 
         function getProgressArea(type, label) {
-            var progressArea = document.createElement('div');
-            progressArea.className = 'progress-wrapper ' + type;
+            var progressArea = document.createElement('div')
+            progressArea.className = 'progress-wrapper ' + type
 
-            var title = getTitle(label);
-            var titleTime = document.createElement('span');
-            titleTime.className = 'title-time ' + type;
-            title.appendChild(titleTime);
-            progressArea.appendChild(title);
+            var title = getTitle(label)
+            var titleTime = document.createElement('span')
+            titleTime.className = 'title-time ' + type
+            title.appendChild(titleTime)
+            progressArea.appendChild(title)
 
-            var progress = document.createElement('progress');
-            progress.className = 'progressbar ' + type;
-            progress.min = 0;
-            progress.max = 100;
+            var progress = document.createElement('progress')
+            progress.className = 'progressbar ' + type
+            progress.min = 0
+            progress.max = 100
 
-            progressArea.appendChild(progress);
+            progressArea.appendChild(progress)
 
-            return progressArea;
+            return progressArea
         }
 
         function clearContainer(container) {
             while (container.firstChild) {
-                container.removeChild(container.firstChild);
+                container.removeChild(container.firstChild)
             }
         }
+
         /* / DOM creating, removing*/
 
         function getTimeLabelForSeconds(time) {
-            var minutes = time >= 60 ? (time - time % 60) / 60 : 0;
-            var seconds = time % 60;
-            return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            var minutes = time >= 60 ? (time - time % 60) / 60 : 0
+            var seconds = time % 60
+            return minutes + ':' + (seconds < 10 ? '0' : '') + seconds
         }
 
         function displayVariantInfo() {
-            var variantsSelect = document.querySelector('.plankan-variants');
-            var plankInfo = document.querySelector('.plank-info');
-            clearContainer(plankInfo);
+            var variantsSelect = document.querySelector('.plankan-variants')
+            var plankInfo = document.querySelector('.plank-info')
+            clearContainer(plankInfo)
             if (variantsSelect.value in variants) {
-                var variant = variants[variantsSelect.value];
-                plankInfo.appendChild(getTitle(variant.name));
-                var partBullets = document.createElement('ul');
-                for (var i = 0; i < variant.parts.length; i++) {
-                    var part = variant.parts[i];
+                var variant = variants[variantsSelect.value]
+                plankInfo.appendChild(getTitle(variant.name))
+                var partBullets = document.createElement('ul')
+                for (var i = 0; i < variant.parts.length; i++) {
+                    var part = variant.parts[i]
                     if (!part.hidden) {
-                        partBullets.appendChild(getPlankPart(part));
+                        partBullets.appendChild(getPlankPart(part))
                     }
                 }
-                plankInfo.appendChild(partBullets);
-                plankInfo.appendChild(getProgressArea('current', 'Current'));
-                plankInfo.appendChild(getProgressArea('total', 'Total'));
+                plankInfo.appendChild(partBullets)
+                plankInfo.appendChild(getProgressArea('current', 'Current'))
+                plankInfo.appendChild(getProgressArea('total', 'Total'))
             }
         }
 
         function sortByTime(o1, o2) {
-            return o1.time - o2.time;
+            return o1.time - o2.time
         }
 
         function addRelativePartToTimeline(timeline, absTime, partTime, soundPart, part) {
-            var isNegative = soundPart.time === null || soundPart.time < 0;
+            var isNegative = soundPart.time === null || soundPart.time < 0
             timeline.push({
                 time: (absTime + (isNegative ? partTime + (soundPart.time === null ? 0 : soundPart.time) : soundPart.time)) * 1000,
                 type: soundPart.type,
                 sound: soundPart.sound,
                 part: part,
                 partStart: absTime * 1000
-            });
+            })
         }
 
         function addTicksToTimeline(timeline, absTime, partTime, part, tickStart, tickInterval) {
-            var isNegative = tickStart < 0;
+            var isNegative = tickStart < 0
             for (var i = isNegative ? partTime + tickStart : tickStart; i < partTime; i += tickInterval) {
                 timeline.push({
                     time: (absTime + i) * 1000,
@@ -1310,122 +1364,123 @@
                     sound: tickSound,
                     part: part,
                     partStart: absTime * 1000
-                });
+                })
             }
         }
 
         function buildTimeline() {
-            var timeline = [];
-            var variantsSelect = document.querySelector('.plankan-variants');
+            var timeline = []
+            var variantsSelect = document.querySelector('.plankan-variants')
             if (variantsSelect.value in variants) {
-                currentVariant = variantsSelect.value;
-                var variant = variants[variantsSelect.value];
+                currentVariant = variantsSelect.value
+                var variant = variants[variantsSelect.value]
 
-                var accumulatedTime = 0;
-                var part;
-                var j;
+                var accumulatedTime = 0
+                var part
+                var j
 
                 for (var i = 0; i < variant.parts.length; i++) {
-                    part = variant.parts[i];
-                    var partTime = part.time;
+                    part = variant.parts[i]
+                    var partTime = part.time
 
                     if (part.countdown) {
                         for (j = 0; j < countdownParts.length; j++) {
-                            addRelativePartToTimeline(timeline, accumulatedTime, partTime, countdownParts[j], part);
+                            addRelativePartToTimeline(timeline, accumulatedTime, partTime, countdownParts[j], part)
                         }
                     }
 
                     for (j = 0; j < part.timeSounds.length; j++) {
-                        addRelativePartToTimeline(timeline, accumulatedTime, partTime, part.timeSounds[j], part);
+                        addRelativePartToTimeline(timeline, accumulatedTime, partTime, part.timeSounds[j], part)
                     }
 
                     if (part.tick) {
-                        var tickStart = part.tick.start || 0;
-                        var tickInterval = part.tick.interval || 5;
-                        addTicksToTimeline(timeline, accumulatedTime, partTime, part, tickStart, tickInterval);
+                        var tickStart = part.tick.start || 0
+                        var tickInterval = part.tick.interval || 5
+                        addTicksToTimeline(timeline, accumulatedTime, partTime, part, tickStart, tickInterval)
                     }
 
-                    accumulatedTime += partTime;
+                    accumulatedTime += partTime
                 }
             }
-            timeline.sort(sortByTime);
-            return timeline;
+            timeline.sort(sortByTime)
+            return timeline
         }
 
         function getSound(files, type) {
-            var sound = files;
+            var sound = files
             if (typeof files !== 'string') {
-                var totalRandom = 0;
-                var i;
+                var totalRandom = 0
+                var i
                 for (i = 0; i < files.length; i++) {
                     if (typeof files[i] !== 'string' && 'weight' in files[i]) {
-                        totalRandom += files[i].weight;
+                        totalRandom += files[i].weight
                     } else {
-                        totalRandom++;
+                        totalRandom++
                     }
                 }
 
                 while (true) {
-                    var randomNumber = Math.floor(Math.random() * totalRandom);
-                    var accRandom = 0;
+                    var randomNumber = Math.floor(Math.random() * totalRandom)
+                    var accRandom = 0
                     for (i = 0; i < files.length; i++) {
-                        accRandom += (typeof files[i] !== 'string' && 'weight' in files[i] ? files[i].weight : 1);
+                        accRandom += (typeof files[i] !== 'string' && 'weight' in files[i] ? files[i].weight : 1)
                         if (randomNumber < accRandom) {
-                            sound = (typeof files[i] !== 'string' && 'sound' in files[i] ? files[i].sound : files[i]);
-                            break;
+                            sound = (typeof files[i] !== 'string' && 'sound' in files[i] ? files[i].sound : files[i])
+                            break
                         }
                     }
 
                     if (type === 'file' || !isInRecentJokes(sound, totalRandom)) {
                         if (pickedRandomObjects.indexOf(sound) === -1) {
-                            pickedRandomObjects.push(sound);
-                            break;
+                            pickedRandomObjects.push(sound)
+                            break
                         }
                     }
                 }
             }
-            return sound;
+            return sound
         }
 
-        var recentJokesCounters = [];
+        var recentJokesCounters = []
+
         function loadRecentJokesCounters() {
-            var savedRecentJokes = window.localStorage.getItem('recentJokes');
+            var savedRecentJokes = window.localStorage.getItem('recentJokes')
             if (savedRecentJokes) {
-                recentJokesCounters = JSON.parse(savedRecentJokes);
+                recentJokesCounters = JSON.parse(savedRecentJokes)
             }
         }
 
         function saveRecentJokesCounters() {
-            window.localStorage.setItem('recentJokes', JSON.stringify(recentJokesCounters));
+            window.localStorage.setItem('recentJokes', JSON.stringify(recentJokesCounters))
         }
 
         function decreaseRecentJokesCounters() {
             for (var i = 0; i < recentJokesCounters.length; i++) {
                 if (--recentJokesCounters[i].count <= 0) {
-                    recentJokesCounters.splice(i, 1);
-                    i--;
+                    recentJokesCounters.splice(i, 1)
+                    i--
                 }
             }
         }
 
         function isInRecentJokes(joke, noReuseUntilCounter) {
-            var isInRecentJokes = false;
-            var jokeSHA = joke.hashCode();
+            var isInRecentJokes = false
+            var jokeSHA = joke.hashCode()
 
-            decreaseRecentJokesCounters();
+            decreaseRecentJokesCounters()
 
             for (var i = 0; i < recentJokesCounters.length; i++) {
                 if (recentJokesCounters[i].sha == jokeSHA) {
-                    isInRecentJokes = true;
-                    break;
+                    isInRecentJokes = true
+                    break
                 }
             }
 
             if (!isInRecentJokes) {
-                recentJokesCounters.push({sha: jokeSHA, count: noReuseUntilCounter});
+                recentJokesCounters.push({sha: jokeSHA, count: noReuseUntilCounter})
             }
 
-            return isInRecentJokes;
+            return isInRecentJokes
         }
 
         function createHowl(sound) {
@@ -1434,170 +1489,171 @@
                 autoplay: false,
                 loop: false,
                 volume: 0.5
-            });
+            })
         }
 
         function constructSoundQueue() {
-            pickedRandomObjects.length = 0;
+            pickedRandomObjects.length = 0
             for (var i = 0; i < sounds.length; i++) {
                 if (sounds[i].type === 'file') {
-                    var sound = getSound(sounds[i].sound, 'file');
-                    sounds[i].sound = createHowl(sound);
+                    var sound = getSound(sounds[i].sound, 'file')
+                    sounds[i].sound = createHowl(sound)
                 } else {
-                    sounds[i].sound = getSound(sounds[i].sound, 'text');
+                    sounds[i].sound = getSound(sounds[i].sound, 'text')
                 }
             }
         }
 
-        var startTime = 0;
-        var endTime = 0;
-        var sounds = null;
-        var queuedSound = null;
-        var lastQueuedSound = null;
-        var currentVariant = null;
-        var pickedRandomObjects = [];
+        var startTime = 0
+        var endTime = 0
+        var sounds = null
+        var queuedSound = null
+        var lastQueuedSound = null
+        var currentVariant = null
+        var pickedRandomObjects = []
+
         function restartTimeoutChain() {
-            endTime = 0;
-            startTime = new Date().valueOf();
-            setNextTime();
-            startTimeout();
-            updateAndStartClockTimeout();
+            endTime = 0
+            startTime = new Date().valueOf()
+            setNextTime()
+            startTimeout()
+            updateAndStartClockTimeout()
         }
 
         function setNextTime() {
-            var elapsed = new Date().valueOf() - startTime;
-            console.log('Lookup next sound, time elapsed (s):', Math.floor(elapsed / 1000));
-            var foundSound = false;
+            var elapsed = new Date().valueOf() - startTime
+            console.log('Lookup next sound, time elapsed (s):', Math.floor(elapsed / 1000))
+            var foundSound = false
             for (var i = 0; i < sounds.length; i++) {
-                var sound = sounds[i];
+                var sound = sounds[i]
                 if (!sound.passed) {
                     // This is our next action
-                    sound.passed = true;
+                    sound.passed = true
                     if (queuedSound) {
-                        lastQueuedSound = queuedSound;
+                        lastQueuedSound = queuedSound
                     }
-                    queuedSound = sound;
-                    foundSound = true;
-                    console.log('Next sound:', queuedSound, 'at time:', queuedSound.time);
-                    break;
+                    queuedSound = sound
+                    foundSound = true
+                    console.log('Next sound:', queuedSound, 'at time:', queuedSound.time)
+                    break
                 }
             }
             if (!foundSound) {
-                queuedSound = null;
+                queuedSound = null
             }
         }
 
         function startTimeout() {
             if (queuedSound) {
-                var elapsed = new Date().valueOf() - startTime;
-                var timeLeft = queuedSound.time - elapsed;
+                var elapsed = new Date().valueOf() - startTime
+                var timeLeft = queuedSound.time - elapsed
                 if (timeLeft < 0) {
-                    timeLeft = 0;
+                    timeLeft = 0
                 }
-                setTimeout(playQueuedAndProceed, timeLeft);
+                setTimeout(playQueuedAndProceed, timeLeft)
             } else {
-                stopPlankan();
+                stopPlankan()
             }
         }
 
         function getTotalElapsedTime(elapsed) {
-            var hiddenInStart = 0;
-            var parts = variants[currentVariant].parts;
+            var hiddenInStart = 0
+            var parts = variants[currentVariant].parts
             for (var i = 0; i < parts.length; i++) {
                 if (parts[i].hidden) {
-                    hiddenInStart += parts[i].time;
+                    hiddenInStart += parts[i].time
                 } else {
-                    break;
+                    break
                 }
             }
-            return Math.floor(elapsed / 1000) - hiddenInStart;
+            return Math.floor(elapsed / 1000) - hiddenInStart
         }
 
         function getTotalTime() {
-            var totalTime = 0;
-            var parts = variants[currentVariant].parts;
+            var totalTime = 0
+            var parts = variants[currentVariant].parts
             for (var i = 0; i < parts.length; i++) {
                 if (!parts[i].hidden) {
-                    totalTime += parts[i].time;
+                    totalTime += parts[i].time
                 }
             }
-            return totalTime;
+            return totalTime
         }
 
         function getCurrentTimeProgressLabel(time, partTime) {
-            return '▴ ' + getTimeLabelForSeconds(time) + ' ▾ ' + getTimeLabelForSeconds(partTime - time);
+            return '▴ ' + getTimeLabelForSeconds(time) + ' ▾ ' + getTimeLabelForSeconds(partTime - time)
         }
 
         function updateProgress(elapsed, sound) {
-            var currentTitleTime = document.querySelector('.title-time.current');
-            var currentProgress = document.querySelector('.progressbar.current');
+            var currentTitleTime = document.querySelector('.title-time.current')
+            var currentProgress = document.querySelector('.progressbar.current')
 
-            var partTime = Math.floor((elapsed - sound.partStart) / 1000);
-            currentTitleTime.innerHTML = getCurrentTimeProgressLabel(partTime, sound.part.time);
-            currentProgress.max = sound.part.time;
-            currentProgress.value = partTime;
+            var partTime = Math.floor((elapsed - sound.partStart) / 1000)
+            currentTitleTime.innerHTML = getCurrentTimeProgressLabel(partTime, sound.part.time)
+            currentProgress.max = sound.part.time
+            currentProgress.value = partTime
 
-            var totalTitleTime = document.querySelector('.title-time.total');
-            var totalProgress = document.querySelector('.progressbar.total');
-            var totalElapsedTime = getTotalElapsedTime(elapsed);
-            var totalTime = getTotalTime();
-            totalTitleTime.innerHTML = getCurrentTimeProgressLabel(totalElapsedTime, totalTime);
-            totalProgress.max = totalTime;
-            totalProgress.value = totalElapsedTime;
+            var totalTitleTime = document.querySelector('.title-time.total')
+            var totalProgress = document.querySelector('.progressbar.total')
+            var totalElapsedTime = getTotalElapsedTime(elapsed)
+            var totalTime = getTotalTime()
+            totalTitleTime.innerHTML = getCurrentTimeProgressLabel(totalElapsedTime, totalTime)
+            totalProgress.max = totalTime
+            totalProgress.value = totalElapsedTime
         }
 
         function updateAndStartClockTimeout() {
-            var currentTime = new Date().valueOf();
+            var currentTime = new Date().valueOf()
             if (endTime && currentTime > endTime) {
-                currentTime = endTime;
+                currentTime = endTime
             }
-            var elapsed = currentTime - startTime;
+            var elapsed = currentTime - startTime
 
             if (queuedSound && !queuedSound.part.hidden) {
-                updateProgress(elapsed, queuedSound);
+                updateProgress(elapsed, queuedSound)
             } else if (lastQueuedSound && !lastQueuedSound.part.hidden) {
-                updateProgress(elapsed, lastQueuedSound);
+                updateProgress(elapsed, lastQueuedSound)
             }
 
 
             if (!endTime) {
-                setTimeout(updateAndStartClockTimeout, 1000 - elapsed % 1000);
+                setTimeout(updateAndStartClockTimeout, 1000 - elapsed % 1000)
             }
         }
 
         function playQueuedAndProceed() {
-            var callback = function() {
-                setNextTime();
-                startTimeout();
-            };
-            var logDone = function() {
-                console.log('Done');
-            };
+            var callback = function () {
+                setNextTime()
+                startTimeout()
+            }
+            var logDone = function () {
+                console.log('Done')
+            }
 
             if (queuedSound.type === 'speak') {
                 // Speak
-                addToldJoke(queuedSound.sound);
-                speak(queuedSound.sound, logDone);
+                addToldJoke(queuedSound.sound)
+                speak(queuedSound.sound, logDone)
             } else {
                 // Howl to play
-                console.log('Play sound');
+                console.log('Play sound')
                 queuedSound.sound.on('end', logDone)
-                queuedSound.sound.play();
+                queuedSound.sound.play()
             }
-            callback();
+            callback()
         }
 
         function speak(textOrig, callback) {
             // To make sure it doesn't mutate original, clone it
-            var text = JSON.parse(JSON.stringify(textOrig));
+            var text = JSON.parse(JSON.stringify(textOrig))
             if (typeof text === 'string' || text.length === 1) {
                 // Speak one text, no need for silence in between
                 speakOne(text, callback)
             } else {
-                var firstText = text.shift();
-                speakOne(firstText, function(err) {
+                var firstText = text.shift()
+                speakOne(firstText, function (err) {
                     if (err && !isNaN(err)) {
-                        callback(err);
+                        callback(err)
                     } else {
                         setTimeout(function () {
                             speak(text, callback)
@@ -1608,42 +1664,42 @@
         }
 
         function speakOne(text, callback) {
-            if (text.length === 1 && (''+text[0]).length > 1) {
-                text = text[0];
+            if (text.length === 1 && ('' + text[0]).length > 1) {
+                text = text[0]
             }
 
             if (text.indexOf('SOUND:') !== -1) {
                 // Exchange this with playing a sound!
-                var soundFile = text.substring('SOUND:'.length);
-                playSound(soundFile, callback);
-                return;
+                var soundFile = text.substring('SOUND:'.length)
+                playSound(soundFile, callback)
+                return
             }
 
-            console.log('Speak:', text);
+            console.log('Speak:', text)
 
-            var speechInstance = new SpeechSynthesisUtterance();
-            speechInstance.text = text;
-            speechInstance.lang = 'en-US';
+            var speechInstance = new SpeechSynthesisUtterance()
+            speechInstance.text = text
+            speechInstance.lang = 'en-US'
 
             speechInstance.onend = function () {
                 if (callback) {
-                    callback();
+                    callback()
                 }
-            };
+            }
 
             speechInstance.onerror = function (e) {
                 if (callback) {
-                    console.error('Can\'t speak:', text, e);
-                    callback(e);
+                    console.error('Can\'t speak:', text, e)
+                    callback(e)
                 }
-            };
+            }
 
-            speechSynthesis.speak(speechInstance);
+            speechSynthesis.speak(speechInstance)
         }
 
         function stopPlankan() {
-            endTime = new Date().valueOf();
-            console.log(endTime - startTime);
+            endTime = new Date().valueOf()
+            console.log(endTime - startTime)
         }
 
         const playSound = (sound, callBack) => {
@@ -1651,70 +1707,70 @@
             // howl.once('load', () => howl.play())
             howl.play()
             howl.on('end', () => {
-                console.log('Played:',sound.split('.')[0])
+                console.log('Played:', sound.split('.')[0])
                 callBack && callBack()
             })
         }
 
-        const playSilence = playSound.bind(this,'silence.mp3')
-        const playTick = playSound.bind(this,'tick.mp3')
+        const playSilence = playSound.bind(this, 'silence.mp3')
+        const playTick = playSound.bind(this, 'tick.mp3')
 
         function clearToldJokes() {
-            const toldJokes = document.querySelector('.plank-told-jokes');
-            toldJokes.innerHTML = '';
+            const toldJokes = document.querySelector('.plank-told-jokes')
+            toldJokes.innerHTML = ''
         }
 
         function isJoke(joke) {
-            return enabledJokes.indexOf(joke) !== -1;
+            return enabledJokes.indexOf(joke) !== -1
         }
 
         function addToldJoke(joke) {
             if (isJoke(joke)) {
-                const toldJokes = document.querySelector('.plank-told-jokes');
+                const toldJokes = document.querySelector('.plank-told-jokes')
                 if (toldJokes.childNodes.length === 0) {
-                    const toldJokesTitle = document.createElement('h3');
-                    toldJokesTitle.innerHTML = 'Told jokes during this session';
-                    toldJokes.appendChild(toldJokesTitle);
+                    const toldJokesTitle = document.createElement('h3')
+                    toldJokesTitle.innerHTML = 'Told jokes during this session'
+                    toldJokes.appendChild(toldJokesTitle)
                 }
 
-                const jokeNode = document.createElement('pre');
-                jokeNode.className = 'plankan-joke-node';
-                jokeNode.innerHTML = typeof joke === 'string' ? joke : joke.join('\n');
-                toldJokes.appendChild(jokeNode);
+                const jokeNode = document.createElement('pre')
+                jokeNode.className = 'plankan-joke-node'
+                jokeNode.innerHTML = typeof joke === 'string' ? joke : joke.join('\n')
+                toldJokes.appendChild(jokeNode)
             }
         }
 
         function startPlankan() {
-            playSilence();
-            clearToldJokes();
-            alignJokes();
-            loadRecentJokesCounters();
-            sounds = buildTimeline();
-            constructSoundQueue();
-            saveRecentJokesCounters();
-            restartTimeoutChain();
+            playSilence()
+            clearToldJokes()
+            alignJokes()
+            loadRecentJokesCounters()
+            sounds = buildTimeline()
+            constructSoundQueue()
+            saveRecentJokesCounters()
+            restartTimeoutChain()
         }
     </script>
 </head>
 <body onload="start();">
-    <div class="container">
-        <div class="header">Plankton 2.11.1 — the "plankan" timer</div>
+<div class="container">
+    <div class="header">Plankton 2.11.2 — the "plankan" timer</div>
 
-        <div class="plankan-chooser">
-            <select class="plankan-variants" onchange="changedVariant()"></select>
-        </div>
-
-        <div class="plank-info"></div>
-
-        <div class="joketypes-wrapper">
-
-        </div>
-
-        <input id="Start" type="button" value="Start plankan" class="start-button" onclick="startPlankan()" />
-        <input id="beep" type="button" value="Tick" class="start-button" onclick="playTick()" />
-        <div class="footer">Start!</div>
-        <a href="http://jsfiddle.net/c38okrs4/12/"></a>
+    <div class="plankan-chooser">
+        <select class="plankan-variants" onchange="changedVariant()"></select>
     </div>
-    <div class="plank-told-jokes"></div>
+
+    <div class="plank-info"></div>
+
+    <div class="joketypes-wrapper">
+
+    </div>
+
+    <input class="start-button" id="Start" onclick="startPlankan()" type="button" value="Start plankan"/>
+    <input class="start-button" id="beep" onclick="playTick()" type="button" value="Tick"/>
+    <div class="footer">Start!</div>
+    <a href="http://jsfiddle.net/c38okrs4/12/"></a>
+</div>
+<div class="plank-told-jokes"></div>
 </body>
 </html>
